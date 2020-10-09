@@ -1,0 +1,6 @@
+div.red {
+  color: red;
+}
+div.red .gray {
+  background-image: url(assets/images/img1.png);
+}
