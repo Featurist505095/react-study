@@ -1,6 +1,2 @@
-div.red {
-  color: red;
-}
-div.red .gray {
-  background-image: url(assets/images/img1.png);
-}
+#root{color:#000;background-image:url(assets/images/wp4855053.jpg)}#root .function-component{background-image:url(assets/images/screen1.png)}
+.function-new-component{background:green}

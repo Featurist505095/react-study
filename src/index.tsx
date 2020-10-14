@@ -1,6 +1,7 @@
 import React from "react";
 import * as ReactDOM from "react-dom";
-import { Comp } from "./Comp";
+import { Comp } from "./module/Comp/Comp";
+import { CompNew } from "./module/CompNew/CompNew";
 
 const rootElement = document.getElementById("root");
 
@@ -14,6 +15,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Comp text="Function Component" count={counter.first} />
     <Comp text="React" />
+    <Comp text="React" />
+    <CompNew text="Function Component" count={counter.first} />
+    <CompNew text="Function Component" count={counter.first} />
   </React.StrictMode>,
   rootElement
 );

@@ -1,11 +1,13 @@
 import React, { useState, FunctionComponent } from "react";
 
+import "./CompNew.scss";
+
 interface IAppProps {
   readonly text: string;
   count?: number;
 }
 
-export const Comp: FunctionComponent<IAppProps> = ({
+export const CompNew: FunctionComponent<IAppProps> = ({
   text,
   count
 }) => {
@@ -13,7 +15,7 @@ export const Comp: FunctionComponent<IAppProps> = ({
 
   return (
     <h3
-      className="function-component"
+      className="function-new-component"
       onClick={(): void => {
         counter ? setCount(counter * 2) : setCount(counter);
       }}
