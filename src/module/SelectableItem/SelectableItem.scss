@@ -1,0 +1,15 @@
+.selectable-item {
+    padding: 0px 5%;
+    min-width: max-content;
+    color: white;
+    cursor: context-menu;
+
+    &.selected {
+        color: tomato;
+    }
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.5;
+    }
+}

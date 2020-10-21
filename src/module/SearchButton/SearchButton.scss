@@ -1,0 +1,27 @@
+.search-button {
+    float: right;
+    border: none;
+    border-radius: 3px;
+    width: 250px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    background-color: palevioletred;
+    outline: none;
+    cursor: pointer;
+    
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.search-form.small {
+    .search-button {
+        width: 150px;
+        height: 30px;
+        color: tomato;
+        background-color: white;
+        font-size: 16px;
+    }
+}
