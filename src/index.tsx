@@ -1,11 +1,11 @@
 import React from "react";
 import * as ReactDOM from "react-dom";
-import { Footer } from "./module/Footer/Footer";
-import { Header } from "./module/Header/Header";
-import { SelectableForm } from "./module/SelectableForm/SelectableForm";
-import { MovieList } from "./module/MovieList/MovieList";
+import { Footer } from "./Components/Footer/Footer";
+import { Header } from "./Components/Header/Header";
+import { SelectableForm } from "./Components/SelectableForm/SelectableForm";
+import { MovieList } from "./Components/MovieList/MovieList";
 import "./index.scss";
-import {ErrorBoundary} from "./module/ErrorBoundary/ErrorBoundary";
+import {ErrorBoundary} from "./Components/ErrorBoundary/ErrorBoundary";
 
 interface IApp {
   toggleOrder(text: string): void;
