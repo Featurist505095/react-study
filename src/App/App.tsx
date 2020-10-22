@@ -6,12 +6,12 @@ import Home from '../pages/home';
 export const App = () => (
   <>
     <ul>
-      <li><Link to='/'>Home</Link></li>
-      <li><Link to='/movie'>Movie</Link></li>
+      <li><Link to='/home'>Home</Link></li>
+      <li><Link to='/'>Movie</Link></li>
     </ul>
     <Switch>
-      <Route exact path='/' component={Home}/>
-      <Route exact path='/movie' component={Movie}/>
+      <Route exact path='/home' component={Home}/>
+      <Route exact path='/' component={Movie}/>
     </Switch>
   </>
 );

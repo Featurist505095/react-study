@@ -1,8 +1,12 @@
 import React, { FunctionComponent } from "react";
 import "./SearchButton.scss";
 
-export const SearchButton: FunctionComponent = () => {
+interface ISearchButton {
+  size?: string;
+}
+
+export const SearchButton: FunctionComponent<ISearchButton> = ( { size } ) => {
   return (
-    <button className="search-button">SEARCH</button>
+    <button className={'search-button ' + size}>SEARCH</button>
   );
 };

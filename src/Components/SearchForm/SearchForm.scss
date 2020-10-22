@@ -1,14 +1,4 @@
 .search-form {
     width: 100%;
     padding: 30px 0px 15px;
-
-    &.small input,
-    &.small div,
-    &.small label {
-        display: none;
-    }
-
-    &.small {
-        padding: 0px;
-    }
 }

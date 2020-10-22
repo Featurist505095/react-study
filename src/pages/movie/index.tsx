@@ -1,5 +1,8 @@
 import React from "react";
+import { Footer } from "../../Components/Footer/Footer";
 import { Header } from "../../Components/Header/Header";
+import { MovieList } from "../../Components/MovieList/MovieList";
+import { SelectableForm } from "../../Components/SelectableForm/SelectableForm";
 import "./index.scss";
 
 interface IApp {
@@ -32,7 +35,10 @@ export default class Movie extends React.Component implements IApp {
   render = () => {
     return (
       <>
-        <Header options={this.state.options}/>
+        <Header movieData={this.state.movieItems[0]}/>
+        <SelectableForm genre={this.state.movieItems[0].genre} />
+        <MovieList data={this.state.movieItems}/>
+        <Footer />
       </>
     )
   }

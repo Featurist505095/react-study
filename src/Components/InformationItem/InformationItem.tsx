@@ -8,6 +8,7 @@ interface InformationItemProps {
 export const InformationItem: FunctionComponent<InformationItemProps> = ({
   text
 }) => {
+  console.log(text);
   return (
     <h3 className={"information-item"}>{text}</h3>
   );

@@ -4,23 +4,28 @@ import { InformationItem } from "../InformationItem/InformationItem";
 import "./SelectableForm.scss";
 
 interface SelectableFormProps {
-  filmCount: number;
-  orderAction: any;
-  selected: string;
+  filmCount?: number;
+  orderAction?: any;
+  selected?: string;
+  genre?: string;
 }
-export const SelectableForm: FunctionComponent<SelectableFormProps> = ({ filmCount, orderAction, selected }) => {
-  if (filmCount < 1) {
+export const SelectableForm: FunctionComponent<SelectableFormProps> = ({ filmCount = 0, orderAction, selected='' , genre }) => {
+  if (filmCount < 1 && genre === undefined) {
     return (
       <div className="selectable-form"></div>
     );
   }
 
-  const text = `${filmCount} movies found`;
-
-  return (
+  return (genre === undefined) ?
+  (
     <div className="selectable-form">
-      <InformationItem text={text} />
+      <InformationItem text={`${filmCount} movies found`} />
       <SelectableList orderAction={orderAction} selected={selected}/>
+    </div>
+  ) :
+  (
+    <div className="selectable-form">
+      <InformationItem text={`Films by ${genre} genre`} />
     </div>
   );
 };
