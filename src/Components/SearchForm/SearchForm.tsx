@@ -1,8 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { optionsType } from "../../Types/OptionsType";
 import { SearchButton } from "../SearchButton/SearchButton";
-import { SearchInput } from "../SearchInput/SearchInput";
-import { SearchLabel } from "../SearchLabel/SearchLabel";
 import { SearchOptionBlock } from "../SearchOptionBlock/SearchOptionBlock";
 import "./SearchForm.scss";
 
@@ -15,8 +13,8 @@ interface SearchFormProps {
 export const SearchForm: FunctionComponent<SearchFormProps> = ({ options, searchAction, selected }) => {
   return (
     <form className="search-form" action="javascript:void(0);">
-      <SearchLabel />
-      <SearchInput />
+      <label className="search-label" htmlFor="search-input">{'FIND YOUR MOVIE'}</label>
+      <input id="search-input" className="search-input"  autoComplete="off" />
       <SearchOptionBlock options={options} searchAction={searchAction} selected={selected}/>
       <SearchButton />
     </form>
