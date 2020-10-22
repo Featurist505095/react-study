@@ -4,6 +4,7 @@ import { Header } from "../../Components/Header/Header";
 import { MovieList } from "../../Components/MovieList/MovieList";
 import { SelectableForm } from "../../Components/SelectableForm/SelectableForm";
 import "./index.scss";
+import { MovieData } from "../../entity";
 
 interface IApp {
   toggleOrder(text: string): void;
@@ -13,13 +14,6 @@ export default class Movie extends React.Component implements IApp {
     options: [
       {id: 1, name: 'Title'},
       {id: 2, name: 'GENRE'}
-    ],
-    // const movieItems : any[] = [];
-    movieItems: [
-      {id: 1111, name: 'Film1', rate: 6.7, year: 1994, genre: 'Action'},
-      {id: 2222, name: 'Film2', rate: 0, year: 2150, genre: 'Action'},
-      {id: 3333, name: 'Film3', rate: 10, year: 1850, genre: 'Dramas'},
-      {id: 4444, name: 'Film4', rate: 10, year: 1850, genre: 'Dramas'}
     ],
     order: 'release date',
     currentMovie: 0
@@ -35,9 +29,9 @@ export default class Movie extends React.Component implements IApp {
   render = () => {
     return (
       <>
-        <Header movieData={this.state.movieItems[0]}/>
-        <SelectableForm genre={this.state.movieItems[0].genre} />
-        <MovieList data={this.state.movieItems}/>
+        <Header MovieData={MovieData[0]}/>
+        <SelectableForm genre={MovieData[0].genres[0]} />
+        <MovieList MovieData={MovieData}/>
         <Footer />
       </>
     )

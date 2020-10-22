@@ -1,28 +1,28 @@
 import React, { FunctionComponent } from "react";
-import { MovieCardName } from "../MovieCardName/MovieCardName";
-import { MovieCardGenre } from "../MovieCardGenre/MovieCardGenre";
-import { MovieCardYear } from "../MovieCardYear/MovieCardYear";
-import { MovieCardDescription } from "../MovieCardDescription/MovieCardDescription";
 import "./MovieCardInformation.scss";
-import { MovieCardTime } from "../MovieCardTime/MovieCardTime";
 
 interface MovieCardInformationProps {
-  name: string;
-  rate: number;
-  year: number;
-  genre: string;
-  description: string;
-  time: number;
+  title: string;
+  vote_average: number;
+  release_date: string;
+  genres: string[];
+  overview: string;
+  runtime: number;
 }
 
-export const MovieCardInformation: FunctionComponent<MovieCardInformationProps> = ({name, year, genre, rate, description, time}) => {
+export const MovieCardInformation: FunctionComponent<MovieCardInformationProps> = ({title, release_date, genres, vote_average, overview, runtime}) => {
+  const year = new Date(release_date).getFullYear();
+
   return (
     <div className="movie-card-information">
-      <MovieCardName name={name} rate={rate}/>
-      <MovieCardGenre genre={genre} />
-      <MovieCardYear year={year} />
-      <MovieCardTime time={time} />
-      <MovieCardDescription description={description} />
+      <div className="movie-card-name">
+        <h3>{title}</h3>
+        <span className="movie-card-rate">{vote_average}</span>
+      </div>
+      <div className="movie-card-genre">{genres.join(', ')}</div>
+      <span className="movie-card-year">{year}</span>
+      <span className="movie-card-time">{runtime} min</span>
+      <span className="movie-card-description">{overview}</span>
     </div>
   );
 };

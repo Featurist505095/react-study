@@ -4,19 +4,20 @@ import { MovieCardInformation } from "../MovieCardInformation/MovieCardInformati
 import "./MovieCard.scss";
 
 interface MovieCardProps {
-  name: string;
-  rate: number;
-  year: number;
-  genre: string;
-  description: string;
-  time: number;
+  title: string;
+  vote_average: number;
+  release_date: string;
+  genres: string[];
+  overview: string;
+  runtime: number;
+  poster_path: string;
 }
 
-export const MovieCard: FunctionComponent<MovieCardProps> = ({name, year, genre, rate, description, time}) => {
+export const MovieCard: FunctionComponent<MovieCardProps> = ({title, release_date, genres, vote_average, overview, runtime, poster_path}) => {
   return (
     <div className="movie-card">
-      <MovieImage name={name} />
-      <MovieCardInformation name={name} genre={genre} year={year} description={description} rate={rate} time={time}/>
+      <MovieImage poster_path={poster_path} />
+      <MovieCardInformation title={title} genres={genres} release_date={release_date} overview={overview} vote_average={vote_average} runtime={runtime}/>
     </div>
   );
 };

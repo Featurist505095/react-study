@@ -1,21 +1,20 @@
 import React, { FunctionComponent } from "react";
-import { MovieName } from "../MovieName/MovieName";
-import { MovieYear } from "../MovieYear/MovieYear";
-import { MovieGenre } from "../MovieGenre/MovieGenre";
 import "./MovieInformation.scss";
 
 interface MovieInformationProps {
-  name: string;
-  year: number;
-  genre: string;
+  title: string;
+  release_date: string;
+  genres: string[];
 }
 
-export const MovieInformation: FunctionComponent<MovieInformationProps> = ({name, year, genre}) => {
+export const MovieInformation: FunctionComponent<MovieInformationProps> = ({title, release_date, genres}) => {
+  const year = new Date(release_date).getFullYear();
+
   return (
     <div className="movie-information">
-      <MovieName name={name} />
-      <MovieYear year={year} />
-      <MovieGenre genre={genre} />
+      <div className="movie-name">{title}</div>
+      <div className="movie-year">{year}</div>
+      <div className="movie-genre">{genres[0]}</div>
     </div>
   );
 };

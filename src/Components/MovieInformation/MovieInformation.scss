@@ -2,4 +2,28 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+
+    .movie-year {
+        padding: 2px;
+        height: max-content;
+        text-transform: uppercase;
+        color: gray;
+        font-size: 0.9em;
+        border: 1px solid grey;
+    }
+
+    .movie-name {
+        width: 80%;
+        text-transform: uppercase;
+        color: gray;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .movie-genre {
+        margin-top: 5px;
+        width: 100%;
+        color: gray;
+        font-size: 0.8em;
+    }
 }

@@ -2,11 +2,11 @@ import React, { FunctionComponent } from "react";
 import "./MovieImage.scss";
 
 interface MovieImageProps {
-  name: string;
+  poster_path?: string;
 }
 
-export const MovieImage: FunctionComponent<MovieImageProps> = ({ name }) => {
+export const MovieImage: FunctionComponent<MovieImageProps> = ({ poster_path }) => {
   return (
-    <img className="movie-image" src={'../../assets/images/'+name+'.png'} />
+    <img className="movie-image" src={poster_path} />
   );
 };

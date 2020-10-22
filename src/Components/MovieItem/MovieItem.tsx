@@ -3,24 +3,18 @@ import { MovieImage } from "../MovieImage/MovieImage";
 import { MovieInformation } from "../MovieInformation/MovieInformation";
 import "./MovieItem.scss";
 
-// const movieItems = [
-//   {id: 1111, name: 'Film1', rate: 6.7, year: 1994, genre: 'Action'},
-//   {id: 2222, name: 'Film2', rate: 0, year: 2150, genre: 'Action'},
-//   {id: 3333, name: 'Film3', rate: 10, year: 1850, genre: 'Dramas'}
-// ]
-
 interface MovieItemProps {
-  name: string;
-  rate: number;
-  year: number;
-  genre: string;
+  title: string;
+  release_date: string;
+  genres: string[];
+  poster_path: string;
 }
 
-export const MovieItem: FunctionComponent<MovieItemProps> = ({name, year, genre}) => {
+export const MovieItem: FunctionComponent<MovieItemProps> = ({title, release_date, genres, poster_path}) => {
   return (
     <div className="movie-item">
-      <MovieImage name={name} />
-      <MovieInformation name={name} genre={genre} year={year} />
+      <MovieImage poster_path={poster_path} />
+      <MovieInformation title={title} genres={genres} release_date={release_date} />
     </div>
   );
 };

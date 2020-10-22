@@ -1,15 +1,15 @@
 import React, { FunctionComponent } from "react";
-import { filmData } from "../../Types/FilmData";
+import { FilmDataType } from "../../Types/FilmData";
 import { ErrorText } from "../ErrorText/ErrorText";
 import { MovieItem } from "../MovieItem/MovieItem";
 import "./MovieList.scss";
 
 interface MovieListProps {
-  data: filmData[];
+  MovieData: FilmDataType[];
 }
 
-export const MovieList: FunctionComponent<MovieListProps> = ({data}) => {
-  if (!data.length) {
+export const MovieList: FunctionComponent<MovieListProps> = ({ MovieData }) => {
+  if (!MovieData.length) {
     return (
       <div className="movie-list">
         <ErrorText />
@@ -19,7 +19,7 @@ export const MovieList: FunctionComponent<MovieListProps> = ({data}) => {
   return (
     <div className="movie-list">
       {
-        data.map(item => {
+        MovieData.map(item => {
           return (<MovieItem key={item.id} {...item}/>)
         }
       )}
