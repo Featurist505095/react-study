@@ -39,6 +39,7 @@ export default class Home extends React.Component implements IApp {
       {id: 4444, name: 'Film4', rate: 10, year: 1850, genre: 'Dramas'}
     ],
     order: 'release date',
+    searchBy: 'TITLE',
     currentMovie: 0
   };
   setState: any;
@@ -49,10 +50,16 @@ export default class Home extends React.Component implements IApp {
     });
   }
 
+  toggleSearch = (text: string) => {
+    this.setState(({searchBy}:{searchBy:string}) => {
+      return { searchBy: searchBy === text ? searchBy : text };
+    });
+  }
+
   render = () => {
     return (
       <>
-        <Header options={this.state.options}/>
+        <Header options={this.state.options} searchAction={this.toggleSearch} selected={this.state.searchBy} />
         <SelectableForm filmCount={this.state.movieItems.length} orderAction={this.toggleOrder} selected={this.state.order}/>
         <MovieList data={this.state.movieItems}/>
         <ErrorBoundary>

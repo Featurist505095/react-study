@@ -6,12 +6,14 @@ import "./SearchOptionBlock.scss";
 
 interface SearchOptionBlockProps {
   options: optionsType[];
+  searchAction: any;
+  selected: string;
 }
-export const SearchOptionBlock: FunctionComponent<SearchOptionBlockProps> = ({ options }) => {
+export const SearchOptionBlock: FunctionComponent<SearchOptionBlockProps> = ({ options, searchAction, selected }) => {
   return (
     <div className="search-option-block">
       <InformationItem text="SEARCH BY" />
-      <SearchOptionsList options={options} />
+      <SearchOptionsList options={options} searchAction={searchAction} selected={selected}/>
     </div>
   );
 };

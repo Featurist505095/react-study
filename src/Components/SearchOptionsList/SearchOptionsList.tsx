@@ -5,16 +5,18 @@ import "./SearchOptionsList.scss";
 
 interface SearchOptionsListProps {
   options: optionsType[];
+  searchAction: any;
+  selected: string;
 }
-export const SearchOptionsList: FunctionComponent<SearchOptionsListProps> = ({ options }) => {
+export const SearchOptionsList: FunctionComponent<SearchOptionsListProps> = ({ options, searchAction, selected }) => {
   return (
     <>
-      {options.map((item, i) => {
-        if (i < 1) {
-          return (<SearchOptionItem key={item.id} option={item.name} select={true} />);
+      {options.map((item) => {
+        if (item.name === selected) {
+          return (<SearchOptionItem key={item.id} option={item.name} select={true} searchAction={searchAction} />);
         }
 
-        return <SearchOptionItem key={item.id} option={item.name} />
+        return <SearchOptionItem key={item.id} option={item.name} searchAction={searchAction} />
       })}
     </>
   );

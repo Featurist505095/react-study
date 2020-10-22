@@ -8,14 +8,16 @@ import "./SearchForm.scss";
 
 interface SearchFormProps {
   options: optionsType[];
+  searchAction: any;
+  selected: string;
 }
 
-export const SearchForm: FunctionComponent<SearchFormProps> = ({ options }) => {
+export const SearchForm: FunctionComponent<SearchFormProps> = ({ options, searchAction, selected }) => {
   return (
     <form className="search-form" action="javascript:void(0);">
       <SearchLabel />
       <SearchInput />
-      <SearchOptionBlock options={options}/>
+      <SearchOptionBlock options={options} searchAction={searchAction} selected={selected}/>
       <SearchButton />
     </form>
   );

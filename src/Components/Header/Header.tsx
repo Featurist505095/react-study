@@ -11,9 +11,11 @@ const filmTest = {id: 1111, time: 234, name: 'Film1', rate: 6.7, year: 1994, gen
 interface HeaderProps {
   options?: optionsType[];
   movieData?: {};
+  searchAction?: any;
+  selected?: string;
 }
 
-export const Header: FunctionComponent<HeaderProps> = ({ options = [], movieData }) => {
+export const Header: FunctionComponent<HeaderProps> = ({ options = [], movieData, searchAction, selected='' }) => {
   return (movieData !== undefined) ?
   (
     <header>
@@ -26,7 +28,7 @@ export const Header: FunctionComponent<HeaderProps> = ({ options = [], movieData
   (
     <header>
       <CompanyName />
-      <SearchForm options={options}/>
+      <SearchForm options={options} searchAction={searchAction} selected={selected}/>
     </header>
   );
 };
