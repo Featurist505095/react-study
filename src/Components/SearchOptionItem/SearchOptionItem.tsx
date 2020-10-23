@@ -6,7 +6,8 @@ interface SearchOptionItemProps {
   select?: boolean;
   searchAction: any;
 }
-export const SearchOptionItem: FunctionComponent<SearchOptionItemProps> = ({option , select = null, searchAction}) => {
+export const SearchOptionItem: FunctionComponent<SearchOptionItemProps> = ({option , select, searchAction}) => {
+  console.log(select);
   const selectedClass = (select === true) ? ' selected' : '';
 
   return (

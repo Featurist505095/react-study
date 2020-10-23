@@ -29,7 +29,7 @@ interface IApp {
 export default class Home extends React.Component implements IApp {
   state = {
     options: [
-      {id: 1, name: 'Title'},
+      {id: 1, name: 'TITLE'},
       {id: 2, name: 'GENRE'}
     ],
     order: 'release date',

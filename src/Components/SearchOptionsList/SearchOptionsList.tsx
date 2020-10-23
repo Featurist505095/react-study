@@ -12,11 +12,9 @@ export const SearchOptionsList: FunctionComponent<SearchOptionsListProps> = ({ o
   return (
     <>
       {options.map((item) => {
-        if (item.name === selected) {
-          return (<SearchOptionItem key={item.id} option={item.name} select={true} searchAction={searchAction} />);
-        }
+        const select = item.name === selected ? true : false;
 
-        return <SearchOptionItem key={item.id} option={item.name} searchAction={searchAction} />
+        return <SearchOptionItem key={item.id} option={item.name} searchAction={searchAction} select={select}/>
       })}
     </>
   );
