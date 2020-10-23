@@ -4,7 +4,7 @@ import { Header } from "../../Components/Header/Header";
 import { SelectableForm } from "../../Components/SelectableForm/SelectableForm";
 import { MovieList } from "../../Components/MovieList/MovieList";
 import "./index.scss";
-import {ErrorBoundary} from "../../Components/ErrorBoundary/ErrorBoundary";
+import ErrorBoundary from "../../Components/ErrorBoundary/ErrorBoundary";
 import { MovieData } from "../../entity";
 
 /*
@@ -55,10 +55,10 @@ export default class Home extends React.Component implements IApp {
       <>
         <Header options={this.state.options} searchAction={this.toggleSearch} selected={this.state.searchBy} />
         <SelectableForm filmCount={MovieData.length} orderAction={this.toggleOrder} selected={this.state.order}/>
-        <MovieList MovieData={MovieData}/>
         <ErrorBoundary>
-          <Footer />
+          <MovieList MovieData={MovieData}/>
         </ErrorBoundary>
+        <Footer />
       </>
     )
   }

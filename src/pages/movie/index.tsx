@@ -5,6 +5,7 @@ import { MovieList } from "../../Components/MovieList/MovieList";
 import { SelectableForm } from "../../Components/SelectableForm/SelectableForm";
 import "./index.scss";
 import { MovieData } from "../../entity";
+import ErrorBoundary from "../../Components/ErrorBoundary/ErrorBoundary";
 
 interface IApp {
   toggleOrder(text: string): void;
@@ -31,7 +32,9 @@ export default class Movie extends React.Component implements IApp {
       <>
         <Header MovieData={MovieData[0]}/>
         <SelectableForm genre={MovieData[0].genres[0]} />
-        <MovieList MovieData={MovieData}/>
+        <ErrorBoundary>
+          <MovieList MovieData={MovieData}/>
+        </ErrorBoundary>
         <Footer />
       </>
     )

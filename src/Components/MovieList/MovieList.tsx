@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 import { FilmDataType } from "../../Types/FilmData";
-import { ErrorText } from "../ErrorText/ErrorText";
 import { MovieItem } from "../MovieItem/MovieItem";
 import "./MovieList.scss";
 
@@ -9,13 +8,6 @@ interface MovieListProps {
 }
 
 export const MovieList: FunctionComponent<MovieListProps> = ({ MovieData }) => {
-  if (!MovieData.length) {
-    return (
-      <div className="movie-list">
-        <ErrorText />
-      </div>
-    );
-  }
   return (
     <div className="movie-list">
       {

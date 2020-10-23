@@ -1,9 +1,25 @@
 import React from "react";
+import { ErrorText } from "../ErrorText/ErrorText";
 import "./ErrorBoundary.scss";
 
-export const ErrorBoundary = (props: any) => {
-  const Text = () => (<h2>Something went wrong!</h2>)
-  let err = false;
+export default class ErrorBoundary extends React.Component{
+    state = {
+      catchedError: false
+    }
 
-  return <>{err ? <Text /> : props.children}</>
+  componentDidCatch(error: any){
+    this.setState({ catchedError: error });
+  }
+
+  render(){
+    const { children } = this.props;
+
+    if (this.state.catchedError)
+      return (
+        <div className="movie-list">
+          <ErrorText />
+        </div>);
+
+    return children;
+  }
 }
