@@ -1,19 +1,19 @@
 import React, { FunctionComponent } from "react";
 import { InformationItem } from "../InformationItem/InformationItem";
 import { SortList } from "../SortList/SortList";
-import "./SelectableList.scss";
+import "./FilmDetailsList.scss";
 
-interface SelectableListProps {
+interface FilmDetailsListProps {
   orderAction: any;
   selected: string;
 }
 
-export const SelectableList: FunctionComponent<SelectableListProps> = ({ orderAction, selected }) => {
+export const FilmDetailsList: FunctionComponent<FilmDetailsListProps> = ({ orderAction, selected }) => {
   const order = 'Order by: '
   const sortList = ['release date', 'rating'];
   
   return (
-    <div className="selectable-list">
+    <div className="film-details-list">
       <InformationItem text={order}/>
       <SortList criteria={sortList} orderAction={orderAction} selected={selected}/>
     </div>

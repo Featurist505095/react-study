@@ -7,7 +7,6 @@ interface SearchOptionItemProps {
   searchAction: any;
 }
 export const SearchOptionItem: FunctionComponent<SearchOptionItemProps> = ({option , select, searchAction}) => {
-  console.log(select);
   const selectedClass = (select === true) ? ' selected' : '';
 
   return (

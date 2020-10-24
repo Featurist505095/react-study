@@ -1,14 +1,14 @@
 import React, { FunctionComponent } from "react";
-import { optionsType } from "../../Types/OptionsType";
 import { CompanyName } from "../CompanyName/CompanyName";
 import { MovieCard } from "../MovieCard/MovieCard";
 import { SearchButton } from "../SearchButton/SearchButton";
 import { SearchForm } from "../SearchForm/SearchForm";
-import { FilmDataType } from "../../Types/FilmData";
+import { FilmDataType } from "../MovieItem/FilmDataType";
 import "./Header.scss";
+import { OptionsType } from "../../pages/home/StateType";
 
 interface HeaderProps {
-  options?: optionsType[];
+  options?: OptionsType[];
   searchAction?: any;
   selected?: string;
   MovieData?: FilmDataType;

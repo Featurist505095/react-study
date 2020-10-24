@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from "react";
-import { optionsType } from "../../Types/OptionsType";
+import { OptionsType } from "../../pages/home/StateType";
 import { SearchButton } from "../SearchButton/SearchButton";
 import { SearchOptionBlock } from "../SearchOptionBlock/SearchOptionBlock";
 import "./SearchForm.scss";
 
 interface SearchFormProps {
-  options: optionsType[];
+  options: OptionsType[];
   searchAction: any;
   selected: string;
 }

@@ -1,33 +1,19 @@
 import React from "react";
 import { Footer } from "../../Components/Footer/Footer";
 import { Header } from "../../Components/Header/Header";
-import { SelectableForm } from "../../Components/SelectableForm/SelectableForm";
+import { FilmDetailsBlock } from "../../Components/FilmDetailsBlock/FilmDetailsBlock";
 import { MovieList } from "../../Components/MovieList/MovieList";
 import "./index.scss";
 import ErrorBoundary from "../../Components/ErrorBoundary/ErrorBoundary";
 import { MovieData } from "../../entity";
+import { StateType, Order, Search } from "./StateType";
 
-/*
-  "id": 0,
-  "title": "string",
-  "tagline": "string",
-  "vote_average": 0,
-  "vote_count": 0,
-  "release_date": "string",
-  "poster_path": "string",
-  "overview": "string",
-  "budget": 0,
-  "revenue": 0,
-  "runtime": 0,
-  "genres": [
-    "string"
-  ]
-*/
 interface IApp {
-  toggleOrder(text: string): void;
+  toggleOrder(text: Order): void;
+  toggleSearch(text: Search): void;
 }
 export default class Home extends React.Component implements IApp {
-  state = {
+  state: StateType = {
     options: [
       {id: 1, name: 'TITLE'},
       {id: 2, name: 'GENRE'}
@@ -38,14 +24,14 @@ export default class Home extends React.Component implements IApp {
   };
   setState: any;
 
-  toggleOrder = (text: string) => {
-    this.setState(({order}:{order:string}) => {
+  toggleOrder = (text: Order) => {
+    this.setState(({order}:{order: Order}) => {
       return { order: order === text ? order : text };
     });
   }
 
-  toggleSearch = (text: string) => {
-    this.setState(({searchBy}:{searchBy:string}) => {
+  toggleSearch = (text: Search) => {
+    this.setState(({searchBy}:{searchBy: Search}) => {
       return { searchBy: searchBy === text ? searchBy : text };
     });
   }
@@ -54,7 +40,7 @@ export default class Home extends React.Component implements IApp {
     return (
       <>
         <Header options={this.state.options} searchAction={this.toggleSearch} selected={this.state.searchBy} />
-        <SelectableForm filmCount={MovieData.length} orderAction={this.toggleOrder} selected={this.state.order}/>
+        <FilmDetailsBlock filmCount={MovieData.length} orderAction={this.toggleOrder} selected={this.state.order}/>
         <ErrorBoundary>
           <MovieList MovieData={MovieData}/>
         </ErrorBoundary>

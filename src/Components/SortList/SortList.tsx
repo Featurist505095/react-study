@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { SelectableItem } from "../SelectableItem/SelectableItem";
+import { FilmDetailsItem } from "../FilmDetailsItem/FilmDetailsItem";
 import "./SortList.scss";
 
 interface SortListProp {
@@ -12,10 +12,9 @@ export const SortList: FunctionComponent<SortListProp> = ({ criteria, orderActio
   return (
     <div className="sort-list">
       {criteria.map((item) => {
-        if (item === selected) {
-          return (<SelectableItem key={item} text={item} select={true} orderAction={orderAction} />);
-        }
-        return (<SelectableItem key={item} text={item} select={false} orderAction={orderAction} />);
+        const select = item === selected ? true : false;
+
+        return (<FilmDetailsItem key={item} text={item} select={select} orderAction={orderAction} />);
       })}
     </div>
   );

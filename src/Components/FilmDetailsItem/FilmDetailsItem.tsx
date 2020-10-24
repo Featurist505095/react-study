@@ -1,13 +1,13 @@
 import React, { FunctionComponent } from "react";
-import "./SelectableItem.scss";
+import "./FilmDetailsItem.scss";
 
-interface SelectableItemProps {
+interface FilmDetailsItemProps {
   text: string;
   orderAction: any;
   select?: boolean;
 }
 
-export const SelectableItem: FunctionComponent<SelectableItemProps> = ({
+export const FilmDetailsItem: FunctionComponent<FilmDetailsItemProps> = ({
   text,
   orderAction,
   select = null
@@ -16,7 +16,7 @@ export const SelectableItem: FunctionComponent<SelectableItemProps> = ({
 
   return (
     <h3
-      className={"selectable-item" + selectedClass}
+      className={"film-details-item" + selectedClass}
       onClick={(): void => {
           orderAction(text);
         }

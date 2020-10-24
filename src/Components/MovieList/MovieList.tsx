@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { FilmDataType } from "../../Types/FilmData";
+import { FilmDataType } from "../MovieItem/FilmDataType";
 import { MovieItem } from "../MovieItem/MovieItem";
 import "./MovieList.scss";
 
