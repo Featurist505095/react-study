@@ -4,18 +4,18 @@ import { SortList } from "../SortList/SortList";
 import "./FilmDetailsList.scss";
 
 interface FilmDetailsListProps {
-  orderAction: any;
+  clickAction: any;
   selected: string;
 }
 
-export const FilmDetailsList: FunctionComponent<FilmDetailsListProps> = ({ orderAction, selected }) => {
+export const FilmDetailsList: FunctionComponent<FilmDetailsListProps> = ({ clickAction, selected }) => {
   const order = 'Order by: '
   const sortList = ['release date', 'rating'];
   
   return (
     <div className="film-details-list">
       <InformationItem text={order}/>
-      <SortList criteria={sortList} orderAction={orderAction} selected={selected}/>
+      <SortList criteria={sortList} clickAction={clickAction} selected={selected}/>
     </div>
   );
 };

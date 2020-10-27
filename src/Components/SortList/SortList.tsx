@@ -4,17 +4,17 @@ import "./SortList.scss";
 
 interface SortListProp {
   criteria: string[];
-  orderAction: any;
+  clickAction: any;
   selected: string;
 }
-export const SortList: FunctionComponent<SortListProp> = ({ criteria, orderAction, selected }) => {
+export const SortList: FunctionComponent<SortListProp> = ({ criteria, clickAction, selected }) => {
 
   return (
     <div className="sort-list">
       {criteria.map((item) => {
         const select = item === selected ? true : false;
 
-        return (<FilmDetailsItem key={item} text={item} select={select} orderAction={orderAction} />);
+        return (<FilmDetailsItem key={item} text={item} select={select} clickAction={clickAction} />);
       })}
     </div>
   );

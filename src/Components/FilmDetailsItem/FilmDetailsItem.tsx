@@ -3,13 +3,13 @@ import "./FilmDetailsItem.scss";
 
 interface FilmDetailsItemProps {
   text: string;
-  orderAction: any;
+  clickAction: any;
   select?: boolean;
 }
 
 export const FilmDetailsItem: FunctionComponent<FilmDetailsItemProps> = ({
   text,
-  orderAction,
+  clickAction,
   select = null
 }) => {
   const selectedClass = select ? ' selected' : '';
@@ -18,7 +18,7 @@ export const FilmDetailsItem: FunctionComponent<FilmDetailsItemProps> = ({
     <h3
       className={"film-details-item" + selectedClass}
       onClick={(): void => {
-          orderAction(text);
+          clickAction.action(text, clickAction.useFunction);
         }
       }
     >

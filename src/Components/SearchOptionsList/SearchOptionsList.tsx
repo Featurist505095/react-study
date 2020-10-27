@@ -1,20 +1,20 @@
 import React, { FunctionComponent } from "react";
-import { OptionsType } from "../../pages/home/StateType";
+import { SearchType } from "../../pages/home/StateType";
 import { SearchOptionItem } from "../SearchOptionItem/SearchOptionItem";
 import "./SearchOptionsList.scss";
 
 interface SearchOptionsListProps {
-  options: OptionsType[];
-  searchAction: any;
+  options: SearchType[];
+  clickAction: any;
   selected: string;
 }
-export const SearchOptionsList: FunctionComponent<SearchOptionsListProps> = ({ options, searchAction, selected }) => {
+export const SearchOptionsList: FunctionComponent<SearchOptionsListProps> = ({ options, clickAction, selected }) => {
   return (
     <>
       {options.map((item) => {
-        const select = item.name === selected ? true : false;
+        const select = item === selected ? true : false;
 
-        return <SearchOptionItem key={item.id} option={item.name} searchAction={searchAction} select={select}/>
+        return <SearchOptionItem key={item} option={item} clickAction={clickAction} select={select}/>
       })}
     </>
   );

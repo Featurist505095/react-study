@@ -4,15 +4,15 @@ import "./SearchOptionItem.scss";
 interface SearchOptionItemProps {
   option: string;
   select?: boolean;
-  searchAction: any;
+  clickAction: any;
 }
-export const SearchOptionItem: FunctionComponent<SearchOptionItemProps> = ({option , select, searchAction}) => {
+export const SearchOptionItem: FunctionComponent<SearchOptionItemProps> = ({option , select, clickAction}) => {
   const selectedClass = (select === true) ? ' selected' : '';
 
   return (
     <button className={"search-option-item" + selectedClass}
       onClick={(): void => {
-        searchAction(option);
+        clickAction.action(option, clickAction.useFunction);
       }}
       >
         {option}

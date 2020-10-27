@@ -5,11 +5,11 @@ import "./FilmDetailsBlock.scss";
 
 interface FilmDetailsBlockProps {
   filmCount?: number;
-  orderAction?: any;
+  clickAction?: any;
   selected?: string;
   genre?: string;
 }
-export const FilmDetailsBlock: FunctionComponent<FilmDetailsBlockProps> = ({ filmCount = 0, orderAction, selected='' , genre }) => {
+export const FilmDetailsBlock: FunctionComponent<FilmDetailsBlockProps> = ({ filmCount = 0, clickAction, selected='' , genre }) => {
   if (filmCount < 1 && genre === undefined) {
     return (
       <div className="film-details-block"></div>
@@ -20,7 +20,7 @@ export const FilmDetailsBlock: FunctionComponent<FilmDetailsBlockProps> = ({ fil
   (
     <div className="film-details-block">
       <InformationItem text={`${filmCount} movies found`} />
-      <FilmDetailsList orderAction={orderAction} selected={selected}/>
+      <FilmDetailsList clickAction={clickAction} selected={selected}/>
     </div>
   ) :
   (
