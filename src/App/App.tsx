@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route, Link } from 'react-router-dom';
-import Movie from '../pages/movie';
+import { Movie } from '../pages/movie';
 import Home from '../pages/home';
 
 export const App = () => (

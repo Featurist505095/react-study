@@ -3,7 +3,6 @@ import { Footer } from "../../Components/Footer/Footer";
 import { Header } from "../../Components/Header/Header";
 import { FilmDetailsBlock } from "../../Components/FilmDetailsBlock/FilmDetailsBlock";
 import { MovieList } from "../../Components/MovieList/MovieList";
-import "./index.scss";
 import ErrorBoundary from "../../Components/ErrorBoundary/ErrorBoundary";
 import { MovieData } from "../../entity";
 import { StateType, Order, Search } from "./StateType";
