@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useCallback, useEffect, useState } from "react";
 import { Footer } from "../../Components/Footer/Footer";
 import { Header } from "../../Components/Header/Header";
 import { FilmDetailsBlock } from "../../Components/FilmDetailsBlock/FilmDetailsBlock";
@@ -9,41 +9,57 @@ import { OrderType, SearchType } from "./StateType";
 import { FilmDataType } from "../../Components/MovieItem/FilmDataType";
 
 export const Home: FunctionComponent = () => {
-  const optionsList: SearchType[] = ['TITLE', 'GENRE'];
+  const searchOptionList: SearchType[] = ['TITLE', 'GENRE'];
   const orderList: OrderType[] = ['release date', 'rating'];
-  const [option, useOption] = useState(optionsList[0]);
-  const [order, useOrder] = useState(orderList[0]);
+  const [searchOption, setOption] = useState(searchOptionList[0]);
+  const [order, setOrder] = useState(orderList[0]);
+  const [sortedData, setSortedData] = useState(MovieData);
 
-  sortData(order, MovieData);
+  const getSortedData = ( order: OrderType, data: FilmDataType[] ): FilmDataType[] => {
+    const returnData = [...data];
+    const orderField = order === 'release date' ? 'release_date' : 'vote_average';
+
+    returnData.sort((prev, curr) => {
+      return prev[orderField] > curr[orderField] ? -1 : 1;
+    });
+
+    return returnData;
+  };
+
+  const onSortData = useCallback(() => {
+    const updatedData = getSortedData( order , MovieData );
+
+    setSortedData(updatedData);
+  }, [ sortedData, order ]);
+
+
+  const useToggleOption = (text: SearchType): void => {
+    setOption(text);
+  }
+
+  const useToggleOrder = (text: OrderType): void => {
+    setOrder(text);
+  }
+
+  useEffect( () => onSortData() , [ order ]);
+
 
   return (
     <>
       <Header 
-        options={optionsList} 
-        clickAction={ {'action': useToggle, 'useFunction': useOption } } 
-        selected={option}
+        options={searchOptionList} 
+        clickAction={ useToggleOption }
+        selected={searchOption}
       />
       <FilmDetailsBlock 
-        filmCount={MovieData.length} 
-        clickAction={ {'action': useToggle, 'useFunction': useOrder }} 
+        filmCount={sortedData.length} 
+        clickAction={ useToggleOrder } 
         selected={order}
       />
       <ErrorBoundary>
-        <MovieList MovieData={MovieData}/>
+        <MovieList MovieData={sortedData}/>
       </ErrorBoundary>
       <Footer />
     </>
   );
-}
-
-const useToggle = ( text: string, useFunction: any ): void => { 
-  useFunction(text);
-};
-
-const sortData = ( order: OrderType, data: FilmDataType[] ) => {
-  const orderField = order === 'release date' ? 'release_date' : 'vote_average';
-
-  data.sort((prev, curr) => {
-    return prev[orderField] > curr[orderField] ? -1 : 1;
-  });
 }

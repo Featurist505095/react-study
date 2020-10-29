@@ -18,7 +18,7 @@ export const FilmDetailsItem: FunctionComponent<FilmDetailsItemProps> = ({
     <h3
       className={"film-details-item" + selectedClass}
       onClick={(): void => {
-          clickAction.action(text, clickAction.useFunction);
+          clickAction(text);
         }
       }
     >
