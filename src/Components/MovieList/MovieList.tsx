@@ -7,7 +7,7 @@ interface MovieListProps {
   MovieData: FilmDataType[];
 }
 
-export const MovieList: FunctionComponent<MovieListProps> = ({ MovieData }) => {
+export const MovieList: FunctionComponent<MovieListProps> = ({MovieData}) => {
   return (
     <div className="movie-list">
       {

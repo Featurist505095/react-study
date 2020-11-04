@@ -53,7 +53,7 @@ const config = env => (
           },
           {
             test: /\.(css|scss|sass)$/,
-            exclude: /\.module\.*\.(css|scss|sass)$/,
+            exclude: /\.Components\.*\.(css|scss|sass)$/,
             use: [
               env && env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
               {
@@ -66,7 +66,7 @@ const config = env => (
             ],
           },
           {
-            test: /\.module\.*\.(css|scss|sass)$/,
+            test: /\.Components\.*\.(css|scss|sass)$/,
             use: [
               env && env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
               {

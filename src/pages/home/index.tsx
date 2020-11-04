@@ -8,7 +8,7 @@ import { MovieData } from "../../entity";
 import { OrderType, SearchType } from "./StateType";
 import { FilmDataType } from "../../Components/MovieItem/FilmDataType";
 
-export const Home: FunctionComponent = () => {
+export const Home: FunctionComponent = React.memo(() => {
   const searchOptionList: SearchType[] = ['TITLE', 'GENRE'];
   const orderList: OrderType[] = ['release date', 'rating'];
   const [searchOption, setOption] = useState(searchOptionList[0]);
@@ -26,11 +26,10 @@ export const Home: FunctionComponent = () => {
     return returnData;
   };
 
-  const onSortData = useCallback(() => {
+  const onSortedData = useCallback((order , MovieData) => {
     const updatedData = getSortedData( order , MovieData );
-
     setSortedData(updatedData);
-  }, [ sortedData, order ]);
+  }, [ order, setSortedData ]);
 
 
   const useToggleOption = (text: SearchType): void => {
@@ -41,8 +40,9 @@ export const Home: FunctionComponent = () => {
     setOrder(text);
   }
 
-  useEffect( () => onSortData() , [ order ]);
-
+  useEffect( () => { 
+    onSortedData(order , sortedData);
+  } , [ order, setSortedData ]);
 
   return (
     <>
@@ -57,9 +57,9 @@ export const Home: FunctionComponent = () => {
         selected={order}
       />
       <ErrorBoundary>
-        <MovieList MovieData={sortedData}/>
+        <MovieList MovieData={sortedData} />
       </ErrorBoundary>
       <Footer />
     </>
   );
-}
+});
