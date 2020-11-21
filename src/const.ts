@@ -1,0 +1,1 @@
+export const MOVIE_URL = 'https://reactjs-cdp.herokuapp.com/';

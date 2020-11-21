@@ -1,21 +1,41 @@
 import React, { FunctionComponent } from "react";
-import { FilmDetailsItem } from "../FilmDetailsItem/FilmDetailsItem";
+import { connect } from "react-redux";
+import { SortType } from "../../pages/home/StateType";
+import { toggleSort } from "../../store/actionCreators";
+import { FilmDetailsItem } from "../FilmDetailsItem";
 import "./SortList.scss";
 
 interface SortListProp {
-  criteria: string[];
+  sortOptionList: SortType[];
   clickAction: any;
-  selected: string;
+  sortBy: SortType;
 }
-export const SortList: FunctionComponent<SortListProp> = ({ criteria, clickAction, selected }) => {
-
+const SortList: FunctionComponent<SortListProp> = ({ sortOptionList, clickAction, sortBy }) => {
   return (
     <div className="sort-list">
-      {criteria.map((item) => {
-        const select = item === selected ? true : false;
-
-        return (<FilmDetailsItem key={item} text={item} select={select} clickAction={clickAction} />);
-      })}
+      {sortOptionList.map((item) => 
+        (<FilmDetailsItem key={item} text={item} selected={sortBy} clickAction={clickAction} />)
+      )}
     </div>
   );
 };
+
+const mapStateToProps = (state: { sortOptionList: SortType[]; sortBy: SortType; }) => {
+  return {
+    sortOptionList: state.sortOptionList,
+    sortBy: state.sortBy 
+  }
+}
+
+const mapDispatchToProps = ((dispatch: any) => {
+  return {
+    clickAction: (event: any) => {
+      const htmlElement = event.target as HTMLElement;
+      const selection = htmlElement.innerText === 'release date' ? 'release date' : 'rating';
+
+      return dispatch(toggleSort(selection))
+    }
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SortList);

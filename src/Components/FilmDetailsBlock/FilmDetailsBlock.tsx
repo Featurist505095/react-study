@@ -1,15 +1,13 @@
 import React, { FunctionComponent } from "react";
-import { FilmDetailsList } from "../FilmDetailsList/FilmDetailsList";
-import { InformationItem } from "../InformationItem/InformationItem";
+import { FilmDetailsList } from "../FilmDetailsList";
+import { InformationItem } from "../InformationItem";
 import "./FilmDetailsBlock.scss";
 
 interface FilmDetailsBlockProps {
   filmCount?: number;
-  clickAction?: any;
-  selected?: string;
   genre?: string;
 }
-export const FilmDetailsBlock: FunctionComponent<FilmDetailsBlockProps> = ({ filmCount = 0, clickAction, selected='' , genre }) => {
+export const FilmDetailsBlock: FunctionComponent<FilmDetailsBlockProps> = ({ filmCount = 0 , genre }) => {
   if (filmCount < 1 && genre === undefined) {
     return (
       <div className="film-details-block"></div>
@@ -20,7 +18,7 @@ export const FilmDetailsBlock: FunctionComponent<FilmDetailsBlockProps> = ({ fil
   (
     <div className="film-details-block">
       <InformationItem text={`${filmCount} movies found`} />
-      <FilmDetailsList clickAction={clickAction} selected={selected}/>
+      <FilmDetailsList />
     </div>
   ) :
   (

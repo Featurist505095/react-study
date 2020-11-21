@@ -1,5 +1,5 @@
 import React from "react";
-import { ErrorText } from "../ErrorText/ErrorText";
+import { ErrorText } from "../ErrorText";
 import "./ErrorBoundary.scss";
 
 export default class ErrorBoundary extends React.Component{

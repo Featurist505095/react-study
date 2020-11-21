@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
-import { MovieImage } from "../MovieImage/MovieImage";
-import { MovieInformation } from "../MovieInformation/MovieInformation";
+import { MovieImage } from "../MovieImage";
+import { MovieInformation } from "../MovieInformation";
 import "./MovieItem.scss";
 
 interface MovieItemProps {

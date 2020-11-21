@@ -1,20 +1,16 @@
 import React, { FunctionComponent } from "react";
-import { CompanyName } from "../CompanyName/CompanyName";
-import { MovieCard } from "../MovieCard/MovieCard";
-import { SearchButton } from "../SearchButton/SearchButton";
-import { SearchForm } from "../SearchForm/SearchForm";
+import { CompanyName } from "../CompanyName";
+import { MovieCard } from "../MovieCard";
+import { SearchButton } from "../SearchButton";
+import { SearchForm } from "../SearchForm";
 import { FilmDataType } from "../MovieItem/FilmDataType";
 import "./Header.scss";
-import { SearchType } from "../../pages/home/StateType";
 
 interface HeaderProps {
-  options?: SearchType[];
-  clickAction?: any;
-  selected?: string;
   MovieData?: FilmDataType;
 }
 
-export const Header: FunctionComponent<HeaderProps> = ({ options = [], clickAction, selected='', MovieData }) => {
+export const Header: FunctionComponent<HeaderProps> = ({ MovieData }) => {
   return (MovieData !== undefined) ?
   (
     <header>
@@ -27,7 +23,7 @@ export const Header: FunctionComponent<HeaderProps> = ({ options = [], clickActi
   (
     <header>
       <CompanyName />
-      <SearchForm options={options} clickAction={clickAction} selected={selected}/>
+      <SearchForm />
     </header>
   );
 };

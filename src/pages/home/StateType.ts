@@ -1,9 +1,9 @@
 export type StateType = {
-    options: [OrderType | SearchType];
+    options: [SortType | SearchType];
     currentMovie: number;
 }
 
-export type OrderType = 'release date' | 'rating';
+export type SortType = 'release date' | 'rating';
 
 
 export type SearchType = 'TITLE' | 'GENRE';
