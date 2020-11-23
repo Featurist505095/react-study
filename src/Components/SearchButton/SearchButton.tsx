@@ -8,7 +8,7 @@ interface ISearchButton {
 }
 
 export const SearchButton: FunctionComponent<ISearchButton> = ( { size, clickAction } ) => {
-  if (size === 'small') {
+  if (size?.includes('small')) {
     return (
       <Link to="/search">
         <button className={'search-button ' + size} type="button" onClick={clickAction}>SEARCH</button>
