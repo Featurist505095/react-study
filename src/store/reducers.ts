@@ -1,6 +1,6 @@
 import { FilmDataType } from '../Components/MovieItem/FilmDataType';
 import { SearchType, SortType } from '../pages/home/StateType';
-import { GET_MOVIES, GET_MOVIES_ERROR, GET_MOVIES_FULFILLED, GET_MOVIES_PENDING, GET_MOVIE_BY_ID, GET_MOVIE_BY_ID_ERROR, GET_MOVIE_BY_ID_FULFILLED, GET_MOVIE_BY_ID_PENDING, SEARCH_BY, SORT_BY, SORT_DATA, UPDATE_INPUT_DATA, UPDATE_SEARCH_DATA } from './actionCreators';
+import { CLEAR_MOVIES_DATA, GET_MOVIES, GET_MOVIES_ERROR, GET_MOVIES_FULFILLED, GET_MOVIES_PENDING, GET_MOVIE_BY_ID, GET_MOVIE_BY_ID_ERROR, GET_MOVIE_BY_ID_FULFILLED, GET_MOVIE_BY_ID_PENDING, SEARCH_BY, SORT_BY, SORT_DATA, UPDATE_INPUT_DATA, UPDATE_SEARCH_DATA } from './actionCreators';
 
 type IInitialState = {
     movies: FilmDataType[],
@@ -106,6 +106,12 @@ export const reducer = (state: IInitialState = initialState, action: { type: str
                 ...state,
                 isPending: false,
                 activeMovie: action.payload
+            }
+        }
+        case CLEAR_MOVIES_DATA: {
+            return {
+                ...state,
+                movies: {}
             }
         }
         default:

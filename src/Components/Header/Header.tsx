@@ -7,7 +7,7 @@ import { FilmDataType } from "../MovieItem/FilmDataType";
 import "./Header.scss";
 import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { getMovieById } from "../../store/actionCreators";
+import { clearMoviesData, getMovieById } from "../../store/actionCreators";
 
 interface HeaderProps {
   MovieData?: FilmDataType;
@@ -19,6 +19,7 @@ export const Header: FunctionComponent<HeaderProps> = ({ MovieData }) => {
 
   const clickAction = async () => {
     dispatch(getMovieById(pathname.replace('/film/', '')));
+    dispatch(clearMoviesData());
   }
 
   useEffect(() => {

@@ -11,7 +11,7 @@ interface ISearchButton {
 }
 
 export const SearchButton: FunctionComponent<ISearchButton> = ( { size, clickAction, sortBy, searchBy, searchInput } ) => {
-  const url = `/search/?text=${searchInput}&sort=${sortBy}&search=${searchBy}`
+  const url = `/search/?text=${searchInput}&sort=${sortBy}&search=${searchBy}`;
   if (size?.includes('small')) {
     return (
       <Link to="/search">

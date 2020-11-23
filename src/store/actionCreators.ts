@@ -80,3 +80,11 @@ export const getMovieById = (id: string) => {
         .then(response => response.json())
     }
 }
+
+export const CLEAR_MOVIES_DATA = 'CLEAR_MOVIES_DATA';
+
+export const clearMoviesData = () => {
+    return {
+        type: CLEAR_MOVIES_DATA
+    }
+}
