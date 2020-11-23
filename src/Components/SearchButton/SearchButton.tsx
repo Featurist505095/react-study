@@ -5,9 +5,13 @@ import "./SearchButton.scss";
 interface ISearchButton {
   size?: string;
   clickAction?: any;
+  sortBy?: string;
+  searchBy?: string;
+  searchInput?: string;
 }
 
-export const SearchButton: FunctionComponent<ISearchButton> = ( { size, clickAction } ) => {
+export const SearchButton: FunctionComponent<ISearchButton> = ( { size, clickAction, sortBy, searchBy, searchInput } ) => {
+  const url = `/search/?text=${searchInput}&sort=${sortBy}&search=${searchBy}`
   if (size?.includes('small')) {
     return (
       <Link to="/search">
@@ -17,6 +21,9 @@ export const SearchButton: FunctionComponent<ISearchButton> = ( { size, clickAct
     )
   }
   return (
-    <button className={'search-button'} type="button" onClick={clickAction}>SEARCH</button>
+    <Link to={url}>
+        <button className={'search-button'} type="button" onClick={clickAction}>SEARCH</button>
+    </Link>
+
   );
 };

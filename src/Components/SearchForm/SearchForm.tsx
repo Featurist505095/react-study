@@ -8,14 +8,6 @@ import { SearchFormInput } from "../SearchFormInput";
 import { SearchOptionBlock } from "../SearchOptionBlock";
 import "./SearchForm.scss";
 
-/*interface ISearchForm {
-  sortBy: SortType;
-  searchBy: SearchType;
-  searchData: string;
-  searchInput: string;
-  movies: FilmDataType[];
-}*/
-
 export const SearchForm: FunctionComponent = () => {
   const {sortBy, searchBy, searchData, searchInput} = useSelector(stateSelector);
   let firstPause = useRef(false);
@@ -30,6 +22,7 @@ export const SearchForm: FunctionComponent = () => {
   const clickAction = async () => {
     dispatch(updateData(searchInput));
   };
+
   useEffect(() => {
     if (firstPause.current) {
       dispatch(fetchMoviesByServer(searchUrl));
@@ -44,7 +37,7 @@ export const SearchForm: FunctionComponent = () => {
     <form className="search-form">
       <SearchFormInput changeAction={changeAction} />
       <SearchOptionBlock />
-      <SearchButton clickAction={clickAction} />
+      <SearchButton clickAction={clickAction} sortBy={sortBy} searchBy={searchBy} searchInput={searchInput} />
     </form>
   );
 };
