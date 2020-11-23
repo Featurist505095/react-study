@@ -16,7 +16,8 @@ const config = env => (
 
     output: {
         filename: "js/bundle.js",
-        path: path.resolve(__dirname, "dist")
+        path: path.resolve(__dirname, "dist"),
+        publicPath: "/"
     },
     resolve: {
       extensions: ['.ts', '.tsx', '.js', '.jsx']
@@ -147,6 +148,7 @@ const config = env => (
         stats: 'errors-only',
         clientLogLevel: 'none',
         hot: true,
+        historyApiFallback: true,
     },
 }
 )
