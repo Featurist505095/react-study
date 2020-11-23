@@ -5,25 +5,29 @@ import { MovieList } from "../../Components/MovieList/MovieList";
 import { FilmDetailsBlock } from "../../Components/FilmDetailsBlock/FilmDetailsBlock";
 import ErrorBoundary from "../../Components/ErrorBoundary/ErrorBoundary";
 import { useDispatch, useSelector } from "react-redux";
-import { FilmDataType } from "../../Components/MovieItem/FilmDataType";
 import { fetchMoviesByServer } from "../../store/actionCreators";
-
-interface IMovie {
-  movies: FilmDataType[],
-}
+import { stateSelector } from "../../store/reducers";
+import { useParams } from "react-router-dom";
 
 export const Movie: FunctionComponent = () => {
-  const movies = useSelector((state: IMovie) => state.movies);
+  const { id } = useParams<{ id: string }>();
+  console.log(id);
+  const { movies, activeMovie } = useSelector(stateSelector);
+  const genre = activeMovie ? activeMovie.genres[0] : '';
   const dispatch = useDispatch();
-  const searchUrl = `https://reactjs-cdp.herokuapp.com/movies?search=drama&searchBy=genres`
+  const searchUrl = `https://reactjs-cdp.herokuapp.com/movies?search=${genre}&searchBy=genres`;
+
   useEffect(() => {
+    dispatch(fetchMoviesByServer(searchUrl));
+  }, [activeMovie, searchUrl])
+  /*useEffect(() => {
     dispatch(fetchMoviesByServer(searchUrl))
-  }, [searchUrl]);
+  }, [searchUrl]);*/
 
   return (
     <>
-      <Header MovieData={movies[0]}/>
-      <FilmDetailsBlock genre={movies[0].genres[0]} />
+      <Header MovieData={activeMovie}/>
+      <FilmDetailsBlock genre={genre} />
       <ErrorBoundary>
         <MovieList MovieData={movies} />
       </ErrorBoundary>

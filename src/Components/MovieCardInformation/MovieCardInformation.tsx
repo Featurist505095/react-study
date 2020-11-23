@@ -21,7 +21,7 @@ export const MovieCardInformation: FunctionComponent<MovieCardInformationProps> 
       </div>
       <div className="movie-card-genre">{genres.join(', ')}</div>
       <span className="movie-card-year">{year}</span>
-      <span className="movie-card-time">{runtime} min</span>
+      <span className="movie-card-time">{runtime ? runtime : 'N/A'} min</span>
       <span className="movie-card-description">{overview}</span>
     </div>
   );

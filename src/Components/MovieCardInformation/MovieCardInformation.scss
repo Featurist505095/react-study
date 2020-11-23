@@ -1,6 +1,7 @@
 .movie-card-information {
     padding-left: 15px;
-
+    width: 100%;
+    
     .movie-card-name {
         color:white;
     
@@ -9,6 +10,9 @@
         }
     
         .movie-card-rate {
+            min-width: 20px;
+            display: inline-block;
+            text-align: center;
             margin-left: 15px;
             border: 2px solid tomato;
             border-radius: 50%;

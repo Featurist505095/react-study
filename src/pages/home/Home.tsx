@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from "react";
+import React, { FunctionComponent } from "react";
 import { Footer } from "../../Components/Footer/Footer";
 import { Header } from "../../Components/Header/Header";
 import { FilmDetailsBlock } from "../../Components/FilmDetailsBlock/FilmDetailsBlock";
@@ -7,7 +7,6 @@ import ErrorBoundary from "../../Components/ErrorBoundary/ErrorBoundary";
 import { SortType, SearchType } from "./StateType";
 import { FilmDataType } from "../../Components/MovieItem/FilmDataType";
 import { connect } from "react-redux";
-import { sortData } from "../../store/actionCreators";
 
 interface IState {
   movies: FilmDataType[],
@@ -18,11 +17,7 @@ interface IState {
   sortData: any
 }
 
-const Home: FunctionComponent<IState> = ({ movies, sortBy, sortData }) => {
-    useEffect(() => {
-        sortData(movies);
-    }, [sortBy]);
-
+const Home: FunctionComponent<IState> = ({ movies }) => {
   return (
     <>
       <Header />
@@ -39,15 +34,7 @@ const Home: FunctionComponent<IState> = ({ movies, sortBy, sortData }) => {
 
 const mapStateToProps = (state: IState) => {
   return {
-    movies: state.movies,
-    sortBy: state.sortBy
-
+    movies: state.movies
   }
 }
-
-const mapDispatchToProps = (dispatch: any) => {
-  return {
-    sortData: (movies: FilmDataType[]) => dispatch(sortData(movies))
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps)(Home);

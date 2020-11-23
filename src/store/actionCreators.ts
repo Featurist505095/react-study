@@ -30,6 +30,7 @@ export const sortData = (movies: FilmDataType[]) => {
 
 export const GET_MOVIES = 'GET_MOVIES';
 export const GET_MOVIES_PENDING = 'GET_MOVIES_PENDING';
+export const GET_MOVIES_ERROR = 'GET_MOVIES_ERROR';
 export const GET_MOVIES_FULFILLED = 'GET_MOVIES_FULFILLED';
 
 export const getMovies = () => {
@@ -62,5 +63,20 @@ export const updateInputData = (inputData: string) => {
     return {
         type: UPDATE_INPUT_DATA,
         payload: inputData
+    }
+}
+
+export const GET_MOVIE_BY_ID = 'GET_MOVIE_BY_ID';
+export const GET_MOVIE_BY_ID_PENDING = 'GET_MOVIE_BY_ID_PENDING';
+export const GET_MOVIE_BY_ID_ERROR = 'GET_MOVIE_BY_ID_ERROR';
+export const GET_MOVIE_BY_ID_FULFILLED = 'GET_MOVIE_BY_ID_FULFILLED';
+
+export const getMovieById = (id: string) => {
+    const url = `https://reactjs-cdp.herokuapp.com/movies/${id}`;
+
+    return {
+        type: GET_MOVIE_BY_ID,
+        payload: fetch(url)
+        .then(response => response.json())
     }
 }

@@ -1,7 +1,6 @@
 import { FilmDataType } from '../Components/MovieItem/FilmDataType';
-import { MovieData } from '../entity';
 import { SearchType, SortType } from '../pages/home/StateType';
-import { GET_MOVIES, GET_MOVIES_FULFILLED, GET_MOVIES_PENDING, SEARCH_BY, SORT_BY, SORT_DATA, UPDATE_INPUT_DATA, UPDATE_SEARCH_DATA } from './actionCreators';
+import { GET_MOVIES, GET_MOVIES_ERROR, GET_MOVIES_FULFILLED, GET_MOVIES_PENDING, GET_MOVIE_BY_ID, GET_MOVIE_BY_ID_ERROR, GET_MOVIE_BY_ID_FULFILLED, GET_MOVIE_BY_ID_PENDING, SEARCH_BY, SORT_BY, SORT_DATA, UPDATE_INPUT_DATA, UPDATE_SEARCH_DATA } from './actionCreators';
 
 type IInitialState = {
     movies: FilmDataType[],
@@ -11,17 +10,19 @@ type IInitialState = {
     searchBy: SearchType,
     searchData: string,
     searchInput: string,
+    activeMovie: FilmDataType | undefined,
     isPending: boolean
 }
 
 const initialState: IInitialState = {
-    movies: MovieData,
+    movies: [],
     sortOptionList: ['release date', 'rating'],
     sortBy: 'release date',
     searchOptionList: ['TITLE', 'GENRE'],
     searchBy: 'TITLE',
     searchData: '',
     searchInput: '',
+    activeMovie: undefined,
     isPending: true,
   };
 
@@ -52,8 +53,17 @@ export const reducer = (state: IInitialState = initialState, action: { type: str
                 ...state
             };
         }
+        case GET_MOVIES_ERROR: {
+            return {
+                ...state,
+                isPending: false,    
+            };
+        }
         case GET_MOVIES_PENDING: {
-            return {...state};
+            return {
+                ...state,
+                isPending: true,    
+            };
         }
         case GET_MOVIES_FULFILLED: {
             return {
@@ -72,6 +82,30 @@ export const reducer = (state: IInitialState = initialState, action: { type: str
             return {
                 ...state,
                 searchInput: action.payload
+            }
+        }
+        case GET_MOVIE_BY_ID: {
+            return {
+                ...state,
+            }
+        }
+        case GET_MOVIE_BY_ID_ERROR: {
+            return {
+                ...state,
+                isPending: false
+            }
+        }
+        case GET_MOVIE_BY_ID_PENDING: {
+            return {
+                ...state,
+                isPending: true
+            }
+        }
+        case GET_MOVIE_BY_ID_FULFILLED: {
+            return {
+                ...state,
+                isPending: false,
+                activeMovie: action.payload
             }
         }
         default:

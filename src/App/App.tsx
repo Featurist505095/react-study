@@ -1,17 +1,14 @@
 import React from "react";
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { Movie } from '../pages/movie';
 import Home from '../pages/home';
+import { ErrorText } from "../Components/ErrorText";
 
 export const App = () => (
-  <>
-    <ul>
-      <li><Link to='/'>Home</Link></li>
-      <li><Link to='/movie'>Movie</Link></li>
-    </ul>
     <Switch>
-      <Route exact path='/' component={Home}/>
-      <Route exact path='/movie' component={Movie}/>
+      <Redirect exact from="/" to="/search" />
+      <Route path='/search' component={Home}/>
+      <Route path="/film/:id" component={Movie}/>
+      <Route component={ErrorText} />
     </Switch>
-  </>
 );
