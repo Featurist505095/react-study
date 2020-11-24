@@ -4,10 +4,8 @@ import { useLocation } from "react-router-dom";
 import { MOVIE_URL } from "../../const";
 import { fetchMoviesByServer, updateData, updateInputData } from "../../store/actionCreators";
 import { stateSelector } from "../../store/reducers";
-import { SearchButton } from "../SearchButton";
-import { SearchFormInput } from "../SearchFormInput";
-import { SearchOptionBlock } from "../SearchOptionBlock";
 import "./SearchForm.scss";
+import { SearchFormView } from "./SearchFormView";
 
 const useQuery = () => new URLSearchParams(useLocation().search);
 
@@ -52,11 +50,5 @@ export const SearchForm: FunctionComponent = () => {
   const changeAction = (event: any) => {
     dispatch(updateInputData(event.target.value))};
 
-  return (
-    <form className="search-form">
-      <SearchFormInput changeAction={changeAction} />
-      <SearchOptionBlock />
-      <SearchButton clickAction={clickAction} sortBy={sortBy} searchBy={searchBy} searchInput={searchInput} />
-    </form>
-  );
+  return <SearchFormView changeAction={changeAction} clickAction={clickAction} sortBy={sortBy} searchBy={searchBy} searchInput={searchInput}/>;
 };

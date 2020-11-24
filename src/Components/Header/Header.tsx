@@ -1,13 +1,10 @@
 import React, { FunctionComponent, useEffect } from "react";
-import { CompanyName } from "../CompanyName";
-import { MovieCard } from "../MovieCard";
-import { SearchButton } from "../SearchButton";
-import { SearchForm } from "../SearchForm";
 import { FilmDataType } from "../MovieItem/FilmDataType";
 import "./Header.scss";
 import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { clearMoviesData, getMovieById } from "../../store/actionCreators";
+import { HeaderView } from "./HeaderView";
 
 interface HeaderProps {
   MovieData?: FilmDataType;
@@ -26,19 +23,5 @@ export const Header: FunctionComponent<HeaderProps> = ({ MovieData }) => {
     dispatch(getMovieById(pathname.replace('/film/', '')));
   }, [pathname])
 
-  return (MovieData !== undefined) ?
-  (
-    <header>
-      <CompanyName />
-      <SearchButton size="small" clickAction={clickAction}/>
-      <MovieCard {...MovieData} />
-    </header>
-  )
-  :
-  (
-    <header>
-      <CompanyName />
-      <SearchForm />
-    </header>
-  );
+  return <HeaderView clickAction={clickAction} MovieData={MovieData}/>
 };
