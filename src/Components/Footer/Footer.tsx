@@ -1,12 +1,12 @@
 import React, { FunctionComponent } from "react";
+import FooterStyled from "../../UI/Footer.styled";
 import CompanyName from "../CompanyName";
-import "./Footer.scss";
 
 const Footer: FunctionComponent = () => {
   return (
-    <footer>
+    <FooterStyled>
       <CompanyName />
-    </footer>
+    </FooterStyled>
   );
 };
 

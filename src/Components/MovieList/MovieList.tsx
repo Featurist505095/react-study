@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
 import { FilmDataType } from "../MovieItem/FilmDataType";
 import MovieItem from "../MovieItem";
-import "./MovieList.scss";
 import ErrorText from "../ErrorText";
+import MovieListStyled from "../../UI/MovieList.styled";
 
 interface MovieListProps {
   MovieData: FilmDataType[];
@@ -10,7 +10,7 @@ interface MovieListProps {
 
 const MovieList: FunctionComponent<MovieListProps> = ({ MovieData }) => {
   return MovieData.length ? (
-    <div className="movie-list">
+    <MovieListStyled className="movie-list">
       {
         MovieData.map(item => {
           return (
@@ -26,7 +26,7 @@ const MovieList: FunctionComponent<MovieListProps> = ({ MovieData }) => {
         }
       )
 }
-    </div>
+    </MovieListStyled>
   ) : (
     <ErrorText />
   );

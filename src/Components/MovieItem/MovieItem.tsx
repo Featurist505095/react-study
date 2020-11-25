@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
+import MovieItemStyled from "../../UI/MovieItem.styled";
 import MovieImage from "../MovieImage";
 import MovieInformation from "../MovieInformation";
-import "./MovieItem.scss";
 
 interface MovieItemProps {
   id: number;
@@ -16,10 +16,10 @@ const MovieItem: FunctionComponent<MovieItemProps> = ({id, title, release_date, 
   const linkPath = `/film/${id}`;
   return (
     <Link to={linkPath}>
-      <div className="movie-item">
+      <MovieItemStyled className="movie-item">
         <MovieImage poster_path={poster_path} />
         <MovieInformation title={title} genres={genres} release_date={release_date} />
-      </div>
+      </MovieItemStyled>
     </Link>
 
   );

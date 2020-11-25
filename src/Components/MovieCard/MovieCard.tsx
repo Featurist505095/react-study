@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import MovieImage from "../MovieImage";
 import MovieCardInformation from "../MovieCardInformation";
-import "./MovieCard.scss";
+import MovieCardStyled from "../../UI/MovieCard.styled";
 
 interface MovieCardProps {
   title: string;
@@ -16,7 +16,7 @@ interface MovieCardProps {
 const MovieCard: FunctionComponent<MovieCardProps> = 
 ({title, release_date, genres, vote_average, overview, runtime, poster_path}) => {
   return (
-    <div className="movie-card">
+    <MovieCardStyled className="movie-card">
       <MovieImage poster_path={poster_path} />
       <MovieCardInformation 
         title={title} 
@@ -26,7 +26,7 @@ const MovieCard: FunctionComponent<MovieCardProps> =
         vote_average={vote_average} 
         runtime={runtime} 
       />
-    </div>
+    </MovieCardStyled>
   );
 };
 

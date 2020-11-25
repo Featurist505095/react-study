@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
+import SearchButtonStyle from "../../UI/SearchButton.styled";
 import "./SearchButton.scss";
 
 interface ISearchButton {
@@ -15,14 +16,16 @@ const SearchButton: FunctionComponent<ISearchButton> = ( { size, clickAction, so
   if (size?.includes('small')) {
     return (
       <Link to="/search">
-        <button className={`search-button ${  size}`} type="button" onClick={clickAction}>SEARCH</button>
+        <SearchButtonStyle className={`search-button ${  size}`} type="button" onClick={clickAction}>
+          SEARCH
+        </SearchButtonStyle>
       </Link>
 
     )
   }
   return (
     <Link to={url}>
-      <button className="search-button" type="button" onClick={clickAction}>SEARCH</button>
+      <SearchButtonStyle className="search-button" type="button" onClick={clickAction}>SEARCH</SearchButtonStyle>
     </Link>
 
   );
