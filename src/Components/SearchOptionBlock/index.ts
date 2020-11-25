@@ -1,1 +1,3 @@
-export { SearchOptionBlock } from './SearchOptionBlock';
+import SearchOptionBlock from './SearchOptionBlock';
+
+export default SearchOptionBlock;

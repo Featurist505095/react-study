@@ -1,12 +1,12 @@
 import React, { FunctionComponent } from "react";
-import { Footer } from "../../Components/Footer/Footer";
-import { Header } from "../../Components/Header/Header";
-import { FilmDetailsBlock } from "../../Components/FilmDetailsBlock/FilmDetailsBlock";
-import { MovieList } from "../../Components/MovieList/MovieList";
+import { connect } from "react-redux";
+import Footer from "../../Components/Footer/Footer";
+import Header from "../../Components/Header/Header";
+import FilmDetailsBlock from "../../Components/FilmDetailsBlock/FilmDetailsBlock";
+import MovieList from "../../Components/MovieList/MovieList";
 import ErrorBoundary from "../../Components/ErrorBoundary/ErrorBoundary";
 import { SortType, SearchType } from "./StateType";
 import { FilmDataType } from "../../Components/MovieItem/FilmDataType";
-import { connect } from "react-redux";
 
 interface IState {
   movies: FilmDataType[],

@@ -1,1 +1,3 @@
-export { MovieItem } from './MovieItem';
+import MovieItem from './MovieItem';
+
+export default MovieItem;

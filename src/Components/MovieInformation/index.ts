@@ -1,1 +1,3 @@
-export { MovieInformation } from './MovieInformation';
+import MovieInformation from './MovieInformation';
+
+export default MovieInformation;

@@ -1,1 +1,3 @@
-export { MovieCardInformation } from './MovieCardInformation';
+import MovieCardInformation from './MovieCardInformation';
+
+export default MovieCardInformation;

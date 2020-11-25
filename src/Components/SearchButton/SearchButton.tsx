@@ -10,20 +10,22 @@ interface ISearchButton {
   searchInput?: string;
 }
 
-export const SearchButton: FunctionComponent<ISearchButton> = ( { size, clickAction, sortBy, searchBy, searchInput } ) => {
+const SearchButton: FunctionComponent<ISearchButton> = ( { size, clickAction, sortBy, searchBy, searchInput } ) => {
   const url = `/search/?text=${searchInput}&sort=${sortBy}&search=${searchBy}`;
   if (size?.includes('small')) {
     return (
       <Link to="/search">
-        <button className={'search-button ' + size} type="button" onClick={clickAction}>SEARCH</button>
+        <button className={`search-button ${  size}`} type="button" onClick={clickAction}>SEARCH</button>
       </Link>
 
     )
   }
   return (
     <Link to={url}>
-        <button className={'search-button'} type="button" onClick={clickAction}>SEARCH</button>
+      <button className="search-button" type="button" onClick={clickAction}>SEARCH</button>
     </Link>
 
   );
 };
+
+export default SearchButton;

@@ -40,7 +40,6 @@ export const getMovies = () => {
 }
 
 export const fetchMoviesByServer = (url: string) => {
-    console.log(url);
     return {
         type: GET_MOVIES,
         payload: fetch(url)

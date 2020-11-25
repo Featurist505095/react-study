@@ -1,1 +1,3 @@
-export { MovieImage } from './MovieImage';
+import MovieImage from './MovieImage';
+
+export default MovieImage;

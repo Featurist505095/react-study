@@ -4,11 +4,16 @@ interface ISearchFormInput{
     changeAction: any;
 }
 
-export const SearchFormInput: FunctionComponent<ISearchFormInput> = ({ changeAction }) => {
+const SearchFormInput: FunctionComponent<ISearchFormInput> = ({ changeAction }) => {
   return (
     <>
-        <label className="search-label" htmlFor="search-input">{'FIND YOUR MOVIE'}</label>
+      <label className="search-label" htmlFor="search-input">
+        FIND YOUR MOVIE
         <input id="search-input" className="search-input" autoComplete="off" onChange={changeAction} /> 
+      </label>
+
     </>
   );
 };
+
+export default SearchFormInput;

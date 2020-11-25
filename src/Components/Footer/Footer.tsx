@@ -1,11 +1,13 @@
 import React, { FunctionComponent } from "react";
-import { CompanyName } from "../CompanyName";
+import CompanyName from "../CompanyName";
 import "./Footer.scss";
 
-export const Footer: FunctionComponent = () => {
+const Footer: FunctionComponent = () => {
   return (
     <footer>
       <CompanyName />
     </footer>
   );
 };
+
+export default Footer;

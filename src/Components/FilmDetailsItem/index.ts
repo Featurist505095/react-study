@@ -1,1 +1,3 @@
-export { FilmDetailsItem } from './FilmDetailsItem';
+import FilmDetailsItem from './FilmDetailsItem';
+
+export default FilmDetailsItem;

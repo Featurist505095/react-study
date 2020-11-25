@@ -1,1 +1,3 @@
-export { FilmDetailsBlock } from './FilmDetailsBlock';
+import FilmDetailsBlock from './FilmDetailsBlock';
+
+export default FilmDetailsBlock;

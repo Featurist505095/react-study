@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { connect } from "react-redux";
 import { SortType } from "../../pages/home/StateType";
 import { toggleSort } from "../../store/actionCreators";
-import { FilmDetailsItem } from "../FilmDetailsItem";
+import FilmDetailsItem from "../FilmDetailsItem";
 import "./SortList.scss";
 
 interface SortListProp {

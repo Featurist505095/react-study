@@ -10,7 +10,8 @@ interface MovieCardInformationProps {
   runtime: number;
 }
 
-export const MovieCardInformation: FunctionComponent<MovieCardInformationProps> = ({title, release_date, genres, vote_average, overview, runtime}) => {
+const MovieCardInformation: FunctionComponent<MovieCardInformationProps> = 
+({title, release_date, genres, vote_average, overview, runtime}) => {
   const year = new Date(release_date).getFullYear();
 
   return (
@@ -21,8 +22,14 @@ export const MovieCardInformation: FunctionComponent<MovieCardInformationProps> 
       </div>
       <div className="movie-card-genre">{genres.join(', ')}</div>
       <span className="movie-card-year">{year}</span>
-      <span className="movie-card-time">{runtime ? runtime : 'N/A'} min</span>
+      <span className="movie-card-time">
+        {runtime || 'N/A'}
+        {' '}
+        min
+      </span>
       <span className="movie-card-description">{overview}</span>
     </div>
   );
 };
+
+export default MovieCardInformation;

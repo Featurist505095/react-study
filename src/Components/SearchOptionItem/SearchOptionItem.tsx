@@ -1,20 +1,24 @@
 import React, { FunctionComponent } from "react";
 import { SearchType } from "../../pages/home/StateType";
 import "./SearchOptionItem.scss";
+
 interface SearchOptionItemProps {
   option: SearchType;
   selected: SearchType;
   clickAction: any;
 }
-export const SearchOptionItem: FunctionComponent<SearchOptionItemProps> = ({option , selected, clickAction}) => {
+const SearchOptionItem: FunctionComponent<SearchOptionItemProps> = ({option , selected, clickAction}) => {
   const selectedClass = (selected === option) ? ' selected' : '';
 
   return (
-    <button className={"search-option-item" + selectedClass}
+    <button
+      className={`search-option-item${  selectedClass}`}
       type="button"
       onClick={clickAction}
-      >
-        {option}
-      </button>
+    >
+      {option}
+    </button>
   );
 };
+
+export default SearchOptionItem;

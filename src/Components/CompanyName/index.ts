@@ -1,1 +1,3 @@
-export { CompanyName } from './CompanyName';
+import CompanyName from './CompanyName';
+
+export default CompanyName;

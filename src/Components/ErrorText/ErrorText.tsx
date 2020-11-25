@@ -5,10 +5,12 @@ interface ErrorTextProps {
   text?: string;
 }
 
-export const ErrorText: FunctionComponent<ErrorTextProps> = ({
+const ErrorText: FunctionComponent<ErrorTextProps> = ({
   text = 'No films found'
 }) => {
   return (
-    <h2 className={"error-text"}>{text}</h2>
+    <h2 className="error-text">{text}</h2>
   );
 };
+
+export default ErrorText;

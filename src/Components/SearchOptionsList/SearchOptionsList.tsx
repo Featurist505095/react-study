@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { SearchType } from "../../pages/home/StateType";
 import { toggleSearch } from "../../store/actionCreators";
-import { SearchOptionsListView } from "./SearchOptionListView";
+import SearchOptionsListView from "./SearchOptionListView";
 import "./SearchOptionsList.scss";
 
 interface ISearch {
@@ -10,7 +10,7 @@ interface ISearch {
   searchOptionList: SearchType[];
 }
 
-export const SearchOptionsList: FunctionComponent = () => {
+const SearchOptionsList: FunctionComponent = () => {
   const searchOptionsList = useSelector((state: ISearch) => state.searchOptionList);
   const selected = useSelector((state: ISearch) => state.searchBy);
   const dispatch = useDispatch();
@@ -23,3 +23,5 @@ export const SearchOptionsList: FunctionComponent = () => {
 
   return <SearchOptionsListView selected={selected} clickAction={clickAction} searchOptionsList={searchOptionsList} />;
 };
+
+export default SearchOptionsList;

@@ -1,1 +1,3 @@
-export { InformationItem } from './InformationItem';
+import InformationItem from './InformationItem';
+
+export default InformationItem;

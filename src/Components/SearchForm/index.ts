@@ -1,1 +1,3 @@
-export { SearchForm } from './SearchForm';
+import SearchForm from './SearchForm';
+
+export default  SearchForm;

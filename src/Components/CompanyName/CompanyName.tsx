@@ -7,12 +7,14 @@ interface CompanyNameProp {
   className?: string;
 }
 
-export const CompanyName: FunctionComponent<CompanyNameProp> = ({
+const CompanyName: FunctionComponent<CompanyNameProp> = ({
   name = 'netflixroulette', className='company-name'
 }) => {
   return (
-    <a className={className} href="">
+    <a className={className} href="/search">
       <h3>{name}</h3>
     </a>
   );
 };
+
+export default CompanyName;

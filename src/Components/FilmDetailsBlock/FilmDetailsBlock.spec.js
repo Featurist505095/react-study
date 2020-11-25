@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from '../../enzyme';
 import { FilmDetailsBlock } from './FilmDetailsBlock';
 
-describe ('Test error text:', () => {
+describe('Test error text:', () => {
     it('Test content', () => {
         const content = shallow(<FilmDetailsBlock genre="Action" />);
 
@@ -14,4 +14,4 @@ describe ('Test error text:', () => {
 
         expect(content.find('.film-details-list').exists()).toBe(false);
     });
-})
+});

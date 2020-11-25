@@ -7,7 +7,7 @@ interface MovieInformationProps {
   genres: string[];
 }
 
-export const MovieInformation: FunctionComponent<MovieInformationProps> = ({title, release_date, genres}) => {
+const MovieInformation: FunctionComponent<MovieInformationProps> = ({title, release_date, genres}) => {
   const year = new Date(release_date).getFullYear();
 
   return (
@@ -18,3 +18,5 @@ export const MovieInformation: FunctionComponent<MovieInformationProps> = ({titl
     </div>
   );
 };
+
+export default MovieInformation;

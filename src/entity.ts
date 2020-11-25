@@ -1,4 +1,5 @@
-export const MovieData = [
+/* eslint-disable max-len */
+const MovieData = [
       {
         "id": 47964,
         "title": "A Good Day to Die Hard",
@@ -171,3 +172,5 @@ export const MovieData = [
         "runtime": 167
       }
     ]
+
+export default MovieData;

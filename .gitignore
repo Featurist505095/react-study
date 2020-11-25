@@ -3,5 +3,4 @@ build
 dist
 coverage
 .awcache
-cypress
 .nyc_output

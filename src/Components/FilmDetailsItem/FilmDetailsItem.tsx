@@ -7,7 +7,7 @@ interface FilmDetailsItemProps {
   selected: string;
 }
 
-export const FilmDetailsItem: FunctionComponent<FilmDetailsItemProps> = ({
+const FilmDetailsItem: FunctionComponent<FilmDetailsItemProps> = ({
   text,
   clickAction,
   selected
@@ -15,10 +15,14 @@ export const FilmDetailsItem: FunctionComponent<FilmDetailsItemProps> = ({
   const selectedClass = selected === text ? ' selected' : '';
   return (
     <h3
-      className={"film-details-item" + selectedClass}
+      className={`film-details-item${  selectedClass}`}
       onClick={clickAction}
+      onKeyDown={() => false}
+      role="presentation"
     >
       {text}
     </h3>
   );
 };
+
+export default FilmDetailsItem;

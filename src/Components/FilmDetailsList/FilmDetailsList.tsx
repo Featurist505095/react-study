@@ -1,15 +1,17 @@
 import React, { FunctionComponent } from "react";
-import { InformationItem } from "../InformationItem";
+import InformationItem from "../InformationItem";
 import SortList from "../SortList";
 import "./FilmDetailsList.scss";
 
-export const FilmDetailsList: FunctionComponent = () => {
+const FilmDetailsList: FunctionComponent = () => {
   const order = 'Sort by: '
   
   return (
     <div className="film-details-list">
-      <InformationItem text={order}/>
+      <InformationItem text={order} />
       <SortList />
     </div>
   );
 };
+
+export default FilmDetailsList;

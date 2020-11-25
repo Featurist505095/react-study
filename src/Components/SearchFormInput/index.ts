@@ -1,1 +1,3 @@
-export { SearchFormInput } from './SearchFormInput';
+import  SearchFormInput from './SearchFormInput';
+
+export default SearchFormInput;

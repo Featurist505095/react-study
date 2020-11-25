@@ -5,10 +5,12 @@ interface InformationItemProps {
   text: string;
 }
 
-export const InformationItem: FunctionComponent<InformationItemProps> = ({
+const InformationItem: FunctionComponent<InformationItemProps> = ({
   text
 }) => {
   return (
-    <h3 className={"information-item"}>{text}</h3>
+    <h3 className="information-item">{text}</h3>
   );
 };
+
+export default InformationItem;

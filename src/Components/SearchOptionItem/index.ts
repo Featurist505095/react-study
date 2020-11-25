@@ -1,1 +1,3 @@
-export { SearchOptionItem } from './SearchOptionItem';
+import SearchOptionItem from './SearchOptionItem';
+
+export default SearchOptionItem;

@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
 import { SearchType, SortType } from "../../pages/home/StateType";
-import { SearchButton } from "../SearchButton";
-import { SearchFormInput } from "../SearchFormInput";
-import { SearchOptionBlock } from "../SearchOptionBlock";
+import SearchButton from "../SearchButton";
+import SearchFormInput from "../SearchFormInput";
+import SearchOptionBlock from "../SearchOptionBlock";
 import "./SearchForm.scss";
 
 interface ISearchFormView {
@@ -13,7 +13,8 @@ interface ISearchFormView {
     clickAction: any
 }
 
-export const SearchFormView: FunctionComponent<ISearchFormView> = ({ changeAction, clickAction, sortBy, searchBy, searchInput }) => {
+const SearchFormView: FunctionComponent<ISearchFormView> = 
+  ({ changeAction, clickAction, sortBy, searchBy, searchInput }) => {
   return (
     <form className="search-form">
       <SearchFormInput changeAction={changeAction} />
@@ -22,3 +23,5 @@ export const SearchFormView: FunctionComponent<ISearchFormView> = ({ changeActio
     </form>
   );
 };
+
+export default SearchFormView;

@@ -1,12 +1,14 @@
 import React, { FunctionComponent } from "react";
-import { ErrorText } from "../ErrorText";
-import { SearchButton } from "../SearchButton";
+import ErrorText from "../ErrorText";
+import SearchButton from "../SearchButton";
 
-export const WrongPage: FunctionComponent = () => {
+const WrongPage: FunctionComponent = () => {
   return (
     <>
-        <ErrorText text='Oooops... Wrong page!'/>
-        <SearchButton size='small to-main' />
+      <ErrorText text='Oooops... Wrong page!' />
+      <SearchButton size='small to-main' />
     </>
   );
 };
+
+export default WrongPage;
