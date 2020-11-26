@@ -10,6 +10,7 @@ import SearchFormView from "./SearchFormView";
 const useQuery = () => new URLSearchParams(useLocation().search);
 
 const SearchForm: FunctionComponent = () => {
+
   const dispatch = useDispatch();
   const {sortBy, searchBy, searchData, searchInput} = useSelector(stateSelector);
   const firstPause = useRef(false);
@@ -51,6 +52,31 @@ const SearchForm: FunctionComponent = () => {
   const changeAction = (event: any) => {
     dispatch(updateInputData(event.target.value))};
 
+
+/*
+  //Не включает в себя работу с изменённым url.
+  const {sortBy, searchBy, searchData, searchInput} = useSelector(stateSelector);
+  const firstPause = useRef(false);
+  const sortByOriginal = sortBy === 'rating' ? 'vote_average' : 'release_date';
+  const searchByOriginal = searchBy === 'GENRE' ? 'genres' : 'title';
+  const searchUrl = `${MOVIE_URL}movies?sortBy=${sortByOriginal}&sortOrder=desc&search=${searchData.replace(' ', '%20')}&searchBy=${searchByOriginal}`;
+
+  const dispatch = useDispatch();
+
+  const clickAction = async () => {
+    dispatch(updateData(searchInput));
+  };
+  
+  const changeAction = (event: any) => {
+    dispatch(updateInputData(event.target.value))};
+
+  useEffect(() => {
+    if (firstPause.current) {
+      dispatch(fetchMoviesByServer(searchUrl));
+    }
+    firstPause.current = true;
+  }, [searchData, sortBy]);
+*/
   return (
     <SearchFormView 
       changeAction={changeAction} 

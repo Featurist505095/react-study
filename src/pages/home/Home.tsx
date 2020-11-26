@@ -7,6 +7,7 @@ import MovieList from "../../Components/MovieList/MovieList";
 import ErrorBoundary from "../../Components/ErrorBoundary/ErrorBoundary";
 import { SortType, SearchType } from "./StateType";
 import { FilmDataType } from "../../Components/MovieItem/FilmDataType";
+import { getBrokenMovies } from "../../store/selectors";
 
 interface IState {
   movies: FilmDataType[],
@@ -34,7 +35,7 @@ const Home: FunctionComponent<IState> = ({ movies }) => {
 
 const mapStateToProps = (state: IState) => {
   return {
-    movies: state.movies
+    movies: getBrokenMovies(state)
   }
 }
 export default connect(mapStateToProps)(Home);

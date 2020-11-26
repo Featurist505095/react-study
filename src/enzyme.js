@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import Enzyme, {
     configure, shallow, mount, render
 } from 'enzyme';

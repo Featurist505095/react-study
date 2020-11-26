@@ -2,10 +2,19 @@ import React from "react";
 import ErrorText from "../ErrorText";
 import "./ErrorBoundary.scss";
 
-class ErrorBoundary extends React.Component{
-  state = { catchedError: false };
 
-  componentDidCatch(error: any){
+interface IErrorProps {}
+
+interface IErrorState {
+  catchedError: boolean | Error
+}
+class ErrorBoundary extends React.Component<IErrorProps, IErrorState> {
+  constructor(props: IErrorProps) {
+    super(props);
+    this.state = { catchedError: false };
+  }
+
+  componentDidCatch(error: Error){
     this.setState({ catchedError: error });
   }
 
