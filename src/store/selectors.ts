@@ -5,7 +5,7 @@ export const getMovies = (state: { movies: FilmDataType[]; }) => state.movies;
 
 export const getBrokenMovies = createSelector(getMovies, (movies) => {
     const copyMovies = [...movies];
-    copyMovies.pop();
+
     return copyMovies;
 });
 

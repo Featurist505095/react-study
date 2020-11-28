@@ -15,12 +15,16 @@ const Header: FunctionComponent<HeaderProps> = ({ MovieData }) => {
   const dispatch = useDispatch();
 
   const clickAction = async () => {
-    dispatch(getMovieById(pathname.replace('/film/', '')));
-    dispatch(clearMoviesData());
+    if (pathname.indexOf('film')) {
+      dispatch(getMovieById(pathname.replace('/film/', '')));
+      dispatch(clearMoviesData());
+    }
   }
 
   useEffect(() => {
-    dispatch(getMovieById(pathname.replace('/film/', '')));
+    if (pathname.indexOf('film')) {
+      dispatch(getMovieById(pathname.replace('/film/', '')));
+    }
   }, [pathname])
 
   return <HeaderView clickAction={clickAction} MovieData={MovieData} />

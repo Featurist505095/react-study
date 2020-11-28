@@ -14,6 +14,8 @@ const FilmDetailsBlock: FunctionComponent<FilmDetailsBlockProps> = ({ filmCount 
     );
   }
 
+  //  const filmDetailListProps = useSort(dispatc, lk);
+
   return (genre === undefined) ?
   (
     <div className="film-details-block">
