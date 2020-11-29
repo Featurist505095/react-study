@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<footer
+  className="sc-bdfBwQ gVCbTU"
+>
+  <a
+    className="company-name"
+    href="/search"
+  >
+    <h3>
+      netflixroulette
+    </h3>
+  </a>
+</footer>
+`;

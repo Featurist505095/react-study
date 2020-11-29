@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
-import MovieItemStyled from "../../UI/MovieItem.styled";
+import MovieItemStyled from "./MovieItem.styled";
 import MovieImage from "../MovieImage";
 import MovieInformation from "../MovieInformation";
 

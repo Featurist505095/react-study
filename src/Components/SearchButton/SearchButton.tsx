@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
-import SearchButtonStyle from "../../UI/SearchButton.styled";
+import SearchButtonStyle from "./SearchButton.styled";
 import "./SearchButton.scss";
 
 interface ISearchButton {

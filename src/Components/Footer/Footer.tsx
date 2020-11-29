@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import FooterStyled from "../../UI/Footer.styled";
+import FooterStyled from "./Footer.styled";
 import CompanyName from "../CompanyName";
 
 const Footer: FunctionComponent = () => {

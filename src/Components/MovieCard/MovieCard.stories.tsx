@@ -1,32 +1,27 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/react/types-6-0';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import SearchButton from '../Components/SearchButton';
-
+import MovieCard from './MovieCard';
+import MovieData from '../../entity';
 
 export default {
-  title: 'Header/SearchButton',
-  component: SearchButton,
+  title: 'Main/MovieCard',
+  component: MovieCard,
 } as Meta;
 
-const Template: Story = (args) => (
+const Film = MovieData[0];
+const Template: Story = () => (
   <BrowserRouter>
     <Switch>
       <Route>
-        <SearchButton {...args} />
+        <MovieCard {...Film} />
       </Route>
     </Switch>
-  </BrowserRouter>
-
+  </BrowserRouter>    
 );
 
 export const Default = Template.bind({});
 Default.args = {};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small'
-};

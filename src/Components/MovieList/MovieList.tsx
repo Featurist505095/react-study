@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { FilmDataType } from "../MovieItem/FilmDataType";
 import MovieItem from "../MovieItem";
 import ErrorText from "../ErrorText";
-import MovieListStyled from "../../UI/MovieList.styled";
+import MovieListStyled from "./MovieList.styled";
 
 interface MovieListProps {
   MovieData: FilmDataType[];

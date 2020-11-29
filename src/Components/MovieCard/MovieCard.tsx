@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import MovieImage from "../MovieImage";
 import MovieCardInformation from "../MovieCardInformation";
-import MovieCardStyled from "../../UI/MovieCard.styled";
+import MovieCardStyled from "./MovieCard.styled";
 
 interface MovieCardProps {
   title: string;
