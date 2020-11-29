@@ -5,7 +5,7 @@
   "main": "./src/index.js",
   "scripts": {
     "cy:open": "cypress open",
-    "test": "jest test -u --coverage",
+    "test": "jest ./src -u --coverage",
     "start": "webpack-dev-server --open",
     "prod": "webpack -p --env.NODE_ENV=production",
     "lint": "eslint ./src --cache --ignore-pattern .gitignore",
