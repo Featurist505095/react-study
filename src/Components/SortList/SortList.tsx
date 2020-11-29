@@ -2,8 +2,8 @@ import React, { FunctionComponent } from "react";
 import { connect } from "react-redux";
 import { SortType } from "../../pages/home/StateType";
 import { toggleSort } from "../../store/actionCreators";
-import FilmDetailsItem from "../FilmDetailsItem";
 import "./SortList.scss";
+import SortListView from "./SortListView";
 
 interface SortListProp {
   sortOptionList: SortType[];
@@ -11,13 +11,7 @@ interface SortListProp {
   sortBy: SortType;
 }
 const SortList: FunctionComponent<SortListProp> = ({ sortOptionList, clickAction, sortBy }) => {
-  return (
-    <div className="sort-list">
-      {sortOptionList.map((item) => 
-        (<FilmDetailsItem key={item} text={item} selected={sortBy} clickAction={clickAction} />)
-      )}
-    </div>
-  );
+  return (<SortListView sortOptionList={sortOptionList} clickAction={clickAction} sortBy={sortBy} />);
 };
 
 const mapStateToProps = (state: { sortOptionList: SortType[]; sortBy: SortType; }) => {

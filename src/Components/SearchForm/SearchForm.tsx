@@ -23,7 +23,7 @@ const SearchForm: FunctionComponent = () => {
 
   const dispatch = useDispatch();
 
-  const clickAction = async () => {
+  const clickAction = () => {
     dispatch(updateData(searchInput));
   };
 

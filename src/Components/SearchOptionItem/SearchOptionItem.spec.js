@@ -1,10 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { render, screen } from '@testing-library/react';
-import { SearchOptionItem } from './SearchOptionItem';
+import SearchOptionItem from './SearchOptionItem';
 
 describe('Test options:', () => {
-    render(<SearchOptionItem option={['anyData']} select clickAction={() => {}} />);
+    render(<SearchOptionItem option={'anyData'} selected={'anyData'} clickAction={() => {}} />);
 
     it('Check selection:', () => {
         expect(screen.getByText('anyData')).toHaveClass('selected');

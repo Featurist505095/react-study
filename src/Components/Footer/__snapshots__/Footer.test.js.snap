@@ -6,7 +6,7 @@ exports[`renders correctly 1`] = `
 >
   <a
     className="company-name"
-    href="/search"
+    href="https://www.netflix.com/"
   >
     <h3>
       netflixroulette

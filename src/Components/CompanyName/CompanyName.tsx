@@ -11,7 +11,7 @@ const CompanyName: FunctionComponent<CompanyNameProp> = ({
   name = 'netflixroulette', className='company-name'
 }) => {
   return (
-    <a className={className} href="/search">
+    <a className={className} href="https://www.netflix.com/">
       <h3>{name}</h3>
     </a>
   );

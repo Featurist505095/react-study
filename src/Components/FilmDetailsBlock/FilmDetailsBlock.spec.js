@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from '../../enzyme';
-import { FilmDetailsBlock } from './FilmDetailsBlock';
+import FilmDetailsBlock from './FilmDetailsBlock';
 
 describe('Test error text:', () => {
     it('Test content', () => {

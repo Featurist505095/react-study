@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from '../../enzyme';
-import { ErrorText } from './ErrorText';
+import ErrorText from './ErrorText';
 
 describe('Test error text:', () => {
     it('Test content', () => {

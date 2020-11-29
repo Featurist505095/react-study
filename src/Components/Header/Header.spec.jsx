@@ -1,7 +1,9 @@
 import React from 'react';
+import { BrowserRouter }  from 'react-router-dom';
+import { Provider } from "react-redux";
+import store from "../../store/store";
 import { shallow } from '../../enzyme';
-import { Header } from './Header';
-import { MovieCard } from '../MovieCard/MovieCard';
+import HeaderView from './HeaderView';
 
 describe('Test Header:', () => {
     const DATA = {
@@ -22,13 +24,13 @@ describe('Test Header:', () => {
         runtime: 98
     };
 
-    it('Test content 1', () => {
-        const content = shallow(<Header />);
+    it('Test contentless', () => {
+        const content = shallow(<HeaderView />);
 
         expect(content.exists('MovieCard')).toBe(false);
     });
-    it('Test content 2', () => {
-        const content = shallow(<Header MovieData={DATA} />);
+    it('Test with content', () => {
+        const content = shallow(<HeaderView MovieData={DATA} />);
 
         expect(content.exists('MovieCard')).toBe(true);
     });

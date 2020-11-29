@@ -1,11 +1,10 @@
 import React from 'react';
 import { shallow } from '../../enzyme';
-import { SortList } from './SortList';
-import { FilmDetailsItem } from '../FilmDetailsItem/FilmDetailsItem';
+import SortListView from './SortListView';
 
 describe('Test SortList:', () => {
     it('Test content', () => {
-        const content = shallow(<SortList criteria={['rating', 'release date']} clickAction={() => {}} selected="rating" />);
+        const content = shallow(<SortListView sortOptionList={['rating', 'release date']} clickAction={() => {}} sortBy="rating" />);
 
         expect(content.find('FilmDetailsItem').length).toEqual(2);
     });

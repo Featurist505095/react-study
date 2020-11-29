@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from '../../enzyme';
-import { CompanyName } from './CompanyName';
+import CompanyName from './CompanyName';
 
 describe('Test company name:', () => {
     it('Test content', () => {

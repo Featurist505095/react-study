@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from '../../enzyme';
-import { MovieCardInformation } from './MovieCardInformation';
+import MovieCardInformation from './MovieCardInformation';
 
 describe('Test MovieCardInformation:', () => {
     it('Test content', () => {

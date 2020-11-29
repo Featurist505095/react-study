@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from '../../enzyme';
-import { InformationItem } from './InformationItem';
+import InformationItem from './InformationItem';
 
 describe('Test InformationItem:', () => {
     it('Test content', () => {
