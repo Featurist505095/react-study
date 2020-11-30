@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from '../../enzyme';
 import MovieInformation from './MovieInformation';
 
-describe('Test movie information:', () => {
+describe('Test MovieInformation:', () => {
     it('Test content', () => {
         const content = shallow(<MovieInformation genres={['Action', 'Thriller']} title="A Good Day to Die Hard" release_date="2013-02-06" />);
 

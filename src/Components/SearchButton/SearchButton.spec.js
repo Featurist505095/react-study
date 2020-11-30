@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import SearchButton from './SearchButton';
 
-describe('Test options:', () => {
+describe('Test SearchButton:', () => {
     render(
         <BrowserRouter>
           <Switch>

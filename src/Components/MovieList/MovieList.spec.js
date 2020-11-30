@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import MovieList from './MovieList';
 import MovieData from '../../entity';
 
-describe('Test data:', () => {
+describe('Test MovieList:', () => {
     const renderedValue = renderer.create(
       <BrowserRouter>
         <Switch>

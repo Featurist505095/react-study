@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from '../../enzyme';
 import MovieImage from './MovieImage';
 
-describe('Test movie image:', () => {
+describe('Test MovieImage:', () => {
     it('Test content', () => {
         const content = shallow(<MovieImage poster_path="url_to_image" />);
 

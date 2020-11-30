@@ -6,7 +6,7 @@ import { render, screen } from '@testing-library/react';
 import store from "../../store/store";
 import SearchOptionBlock from './SearchOptionBlock';
 
-describe('Test options:', () => {
+describe('Test SearchOptionBlock:', () => {
     render(
       <Provider store={store}>
         <BrowserRouter>

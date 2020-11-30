@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from '../../enzyme';
 import CompanyName from './CompanyName';
 
-describe('Test company name:', () => {
+describe('Test CompanyName:', () => {
     it('Test content', () => {
         const content = shallow(<CompanyName />);
 

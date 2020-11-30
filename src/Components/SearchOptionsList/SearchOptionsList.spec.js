@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import store from "../../store/store";
 import SearchOptionsListView from './SearchOptionListView';
 
-describe('Test options:', () => {
+describe('Test SearchOptionsListView:', () => {
     const renderedValue = renderer.create(
       <Provider store={store}>
         <BrowserRouter>
