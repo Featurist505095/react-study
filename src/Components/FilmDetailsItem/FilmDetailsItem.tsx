@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import "./FilmDetailsItem.scss";
+import classNames from "classnames";
 
 interface FilmDetailsItemProps {
   text: string;
@@ -12,10 +13,11 @@ const FilmDetailsItem: FunctionComponent<FilmDetailsItemProps> = ({
   clickAction,
   selected
 }) => {
-  const selectedClass = selected === text ? ' selected' : '';
+  const selectedClass = classNames('film-details-item', {selected: selected === text}); 
+
   return (
     <h3
-      className={`film-details-item${  selectedClass}`}
+      className={selectedClass}
       onClick={clickAction}
       onKeyDown={() => false}
       role="presentation"
