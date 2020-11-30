@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMoviesByServer } from "../../store/actionCreators";
+import { fetchMoviesByServerByGenre } from "../../store/actionCreators";
 import { stateSelector } from "../../store/reducers";
 import MovieView from "./MovieView";
 
@@ -10,7 +10,7 @@ const Movie: FunctionComponent = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchMoviesByServer(undefined, undefined, undefined, genre));
+    dispatch(fetchMoviesByServerByGenre(genre));
   }, [activeMovie]);
 
   return <MovieView activeMovie={activeMovie} movies={movies} genre={genre} />

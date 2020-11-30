@@ -40,7 +40,7 @@ export const getMovies = () => {
     }
 }
 
-export const fetchMoviesByServer = (sortBy?: string, searchBy?: string, text?: string, genre?: string) => {
+export const fetchMoviesByServer = (sortBy?: string, searchBy?: string, text?: string) => {
     let url = '';
     
     if (sortBy !== undefined && searchBy !== undefined && text !== undefined) {
@@ -48,13 +48,21 @@ export const fetchMoviesByServer = (sortBy?: string, searchBy?: string, text?: s
         const copySortBy = sortBy === 'rating' ? 'vote_average' : 'release_date';
         const copySearchBy = searchBy === 'GENRE' ? 'genres' : 'title';
         url = GET_MOVIES_BY_ALL_ENPOINTS(copySortBy, copySearchBy, copyText);
-    } else if (genre !== undefined) {
-        url = GET_MOVIES_BY_GENRE_ENDPOINT(genre);
     }
-    console.log(url);
+
     if (url === '') {
         return { type: GET_MOVIES };
     }
+    return {
+        type: GET_MOVIES,
+        payload: fetch(url)
+            .then(response => response.json())
+    };
+}
+
+export const fetchMoviesByServerByGenre = (genre: string) => {
+    const url = GET_MOVIES_BY_GENRE_ENDPOINT(genre);
+
     return {
         type: GET_MOVIES,
         payload: fetch(url)

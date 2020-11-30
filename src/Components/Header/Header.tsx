@@ -22,7 +22,7 @@ const Header: FunctionComponent<HeaderProps> = ({ MovieData }) => {
   }
 
   useEffect(() => {
-    if (pathname.indexOf('film')) {
+    if (!pathname.includes('search')) {
       dispatch(getMovieById(pathname.replace('/film/', '')));
     }
   }, [pathname])
