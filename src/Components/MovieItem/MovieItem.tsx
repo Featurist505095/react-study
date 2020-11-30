@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import MovieItemStyled from "./MovieItem.styled";
 import MovieImage from "../MovieImage";
 import MovieInformation from "../MovieInformation";
+import "./MovieItem.scss";
 
 interface MovieItemProps {
   id: number;

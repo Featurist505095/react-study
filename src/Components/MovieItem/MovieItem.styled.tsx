@@ -5,6 +5,7 @@ const MovieItemStyled = styled.div`
     width: 100%;
     margin: auto;
     margin-top: 15px;
+    text-decoration: none;
 `;
 
 export default MovieItemStyled;
