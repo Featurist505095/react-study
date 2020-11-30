@@ -1,18 +1,18 @@
 import MovieData from '../entity';
-import { sortData, toggleSearch, toggleSort, getMovies, updateData, updateInputData, clearMoviesData, getMovieById } from './actionCreators';
+import { SEARCH_BY, SORT_BY, sortData, toggleSearch, toggleSort, getMovies, updateData, updateInputData, clearMoviesData, clearSearchData, getMovieById } from './actionCreators';
 
 describe('Check actionCreators: ', () => {
 
     it('toggleSearch return', () => {
         const searchToggler = toggleSearch('TITLE');
 
-        expect(searchToggler).toEqual({ type: 'SEARCH_BY', payload: 'TITLE' });
+        expect(searchToggler).toEqual({ type: SEARCH_BY, payload: 'TITLE' });
     });
 
     it('toggleSort return', () => {
         const sortToggler = toggleSort('rating');
 
-        expect(sortToggler).toEqual({ type: 'SORT_BY', payload: 'rating' });
+        expect(sortToggler).toEqual({ type: SORT_BY, payload: 'rating' });
     });
 
     it('sortData return', () => {
@@ -44,4 +44,10 @@ describe('Check actionCreators: ', () => {
 
         expect(clearedMoviesData).toEqual({ type: 'CLEAR_MOVIES_DATA' });
     });
+
+    it('clearSearchData return', ()=> {
+        const clearedSearchData = clearSearchData();
+
+        expect(clearedSearchData).toEqual({ type: 'CLEAR_SEARCH_DATA' });
+    })
 });

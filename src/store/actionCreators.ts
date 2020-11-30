@@ -1,3 +1,4 @@
+import { GET_MOVIES_BY_ALL_ENPOINTS, GET_MOVIES_BY_GENRE_ENDPOINT } from '../api/endpointrs';
 import { FilmDataType } from '../Components/MovieItem/FilmDataType';
 import { SearchType, SortType } from '../pages/home/StateType';
 
@@ -39,7 +40,21 @@ export const getMovies = () => {
     }
 }
 
-export const fetchMoviesByServer = (url: string) => {
+export const fetchMoviesByServer = (sortBy?: string, searchBy?: string, text?: string, genre?: string) => {
+    let url = '';
+    
+    if (sortBy !== undefined && searchBy !== undefined && text !== undefined) {
+        const copyText = text.replace(' ', '%20');
+        const copySortBy = sortBy === 'rating' ? 'vote_average' : 'release_date';
+        const copySearchBy = searchBy === 'GENRE' ? 'genres' : 'title';
+        url = GET_MOVIES_BY_ALL_ENPOINTS(copySortBy, copySearchBy, copyText);
+    } else if (genre !== undefined) {
+        url = GET_MOVIES_BY_GENRE_ENDPOINT(genre);
+    }
+    console.log(url);
+    if (url === '') {
+        return { type: GET_MOVIES };
+    }
     return {
         type: GET_MOVIES,
         payload: fetch(url)
@@ -85,5 +100,13 @@ export const CLEAR_MOVIES_DATA = 'CLEAR_MOVIES_DATA';
 export const clearMoviesData = () => {
     return {
         type: CLEAR_MOVIES_DATA
+    }
+}
+
+export const CLEAR_SEARCH_DATA = 'CLEAR_SEARCH_DATA';
+
+export const clearSearchData =() => {
+    return {
+        type: CLEAR_SEARCH_DATA
     }
 }

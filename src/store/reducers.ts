@@ -1,7 +1,7 @@
 import { FilmDataType } from '../Components/MovieItem/FilmDataType';
 import { SearchType, SortType } from '../pages/home/StateType';
 import { 
-    CLEAR_MOVIES_DATA, GET_MOVIES, GET_MOVIES_ERROR, GET_MOVIES_FULFILLED,
+    CLEAR_MOVIES_DATA, CLEAR_SEARCH_DATA, GET_MOVIES, GET_MOVIES_ERROR, GET_MOVIES_FULFILLED,
     GET_MOVIES_PENDING, GET_MOVIE_BY_ID, GET_MOVIE_BY_ID_ERROR, 
     GET_MOVIE_BY_ID_FULFILLED, GET_MOVIE_BY_ID_PENDING, SEARCH_BY, SORT_BY,
     SORT_DATA, UPDATE_INPUT_DATA, UPDATE_SEARCH_DATA } from './actionCreators';
@@ -115,7 +115,13 @@ export const reducer = (state: IInitialState = initialState, action: { type: str
         case CLEAR_MOVIES_DATA: {
             return {
                 ...state,
-                movies: {}
+                movies: []
+            }
+        }
+        case CLEAR_SEARCH_DATA: {
+            return {
+                ...state,
+                searchData: ''
             }
         }
         default:

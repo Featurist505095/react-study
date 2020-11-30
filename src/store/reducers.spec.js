@@ -117,6 +117,13 @@ describe('Check reducers: ', ()=> {
         let state = { movies: MovieData };
         state = reducer(state, { type: 'CLEAR_MOVIES_DATA' });
 
-        expect(state).toEqual({ movies: {} });
-    })
+        expect(state).toEqual({ movies: [] });
+    });
+
+    it('CLEAR_SEARCH_DATA return', () => {
+        let state = { searchData: 'text' };
+        state = reducer(state, { type: 'CLEAR_SEARCH_DATA' });
+
+        expect(state).toEqual({ searchData: '' });
+    });
 });

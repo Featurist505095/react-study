@@ -8,11 +8,10 @@ const Movie: FunctionComponent = () => {
   const { movies, activeMovie } = useSelector(stateSelector);
   const genre = activeMovie ? activeMovie.genres[0] : '';
   const dispatch = useDispatch();
-  const searchUrl = `https://reactjs-cdp.herokuapp.com/movies?search=${genre}&searchBy=genres`;
 
   useEffect(() => {
-    dispatch(fetchMoviesByServer(searchUrl));
-  }, [activeMovie, searchUrl]);
+    dispatch(fetchMoviesByServer(undefined, undefined, undefined, genre));
+  }, [activeMovie]);
 
   return <MovieView activeMovie={activeMovie} movies={movies} genre={genre} />
 }
