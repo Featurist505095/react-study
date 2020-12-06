@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { fetchMoviesByServer, updateData, updateInputData, clearSearchData } from "../../store/actionCreators";
+import { updateData, updateInputData, clearSearchData, loadData } from "../../store/actionCreators";
 import { stateSelector } from "../../store/reducers";
 import "./SearchForm.scss";
 import SearchFormView from "./SearchFormView";
@@ -23,7 +23,7 @@ const SearchForm: FunctionComponent = () => {
 
 
   useEffect(() => {
-    dispatch(fetchMoviesByServer(sort, search, text));
+    dispatch(loadData(sort, search, text));
     dispatch(clearSearchData());
   }, [searchData, sortBy]);
 

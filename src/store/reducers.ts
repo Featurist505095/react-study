@@ -1,9 +1,8 @@
 import { FilmDataType } from '../Components/MovieItem/FilmDataType';
 import { SearchType, SortType } from '../pages/home/StateType';
 import { 
-    CLEAR_MOVIES_DATA, CLEAR_SEARCH_DATA, GET_MOVIES, GET_MOVIES_ERROR, GET_MOVIES_FULFILLED,
-    GET_MOVIES_PENDING, GET_MOVIE_BY_ID, GET_MOVIE_BY_ID_ERROR, 
-    GET_MOVIE_BY_ID_FULFILLED, GET_MOVIE_BY_ID_PENDING, SEARCH_BY, SORT_BY,
+    CLEAR_MOVIES_DATA, CLEAR_SEARCH_DATA, GET_MOVIES, LOAD_DATA, LOAD_DATA_BY_GENRE,
+     LOAD_DATA_BY_ID, PUT_DATA, PUT_DATA_BY_GENRE, PUT_DATA_BY_ID, SEARCH_BY, SORT_BY,
     SORT_DATA, UPDATE_INPUT_DATA, UPDATE_SEARCH_DATA } from './actionCreators';
 
 type IInitialState = {
@@ -57,25 +56,6 @@ export const reducer = (state: IInitialState = initialState, action: { type: str
                 ...state
             };
         }
-        case GET_MOVIES_ERROR: {
-            return {
-                ...state,
-                isPending: false,    
-            };
-        }
-        case GET_MOVIES_PENDING: {
-            return {
-                ...state,
-                isPending: true,    
-            };
-        }
-        case GET_MOVIES_FULFILLED: {
-            return {
-                ...state,
-                isPending: false,
-                movies: action.payload.data
-            }
-        }
         case UPDATE_SEARCH_DATA: {
             return {
                 ...state,
@@ -88,30 +68,6 @@ export const reducer = (state: IInitialState = initialState, action: { type: str
                 searchInput: action.payload
             }
         }
-        case GET_MOVIE_BY_ID: {
-            return {
-                ...state,
-            }
-        }
-        case GET_MOVIE_BY_ID_ERROR: {
-            return {
-                ...state,
-                isPending: false
-            }
-        }
-        case GET_MOVIE_BY_ID_PENDING: {
-            return {
-                ...state,
-                isPending: true
-            }
-        }
-        case GET_MOVIE_BY_ID_FULFILLED: {
-            return {
-                ...state,
-                isPending: false,
-                activeMovie: action.payload
-            }
-        }
         case CLEAR_MOVIES_DATA: {
             return {
                 ...state,
@@ -122,6 +78,42 @@ export const reducer = (state: IInitialState = initialState, action: { type: str
             return {
                 ...state,
                 searchData: ''
+            }
+        }
+        case LOAD_DATA: {
+            return {
+                ...state
+            }
+        }
+        case PUT_DATA: {
+            return {
+                ...state,
+                isPending: false,
+                movies: action.payload.data
+            }
+        }
+        case LOAD_DATA_BY_ID: {
+            return {
+                ...state
+            }
+        }
+        case PUT_DATA_BY_ID: {
+            return {
+                ...state,
+                isPending: false,
+                activeMovie: action.payload
+            }
+        }
+        case LOAD_DATA_BY_GENRE: {
+            return {
+                ...state
+            }
+        }
+        case PUT_DATA_BY_GENRE: {
+            return {
+                ...state,
+                isPending: false,
+                movies: action.payload.data
             }
         }
         default:

@@ -1,4 +1,4 @@
-import { GET_MOVIES_BY_ALL_ENPOINTS, GET_MOVIES_BY_GENRE_ENDPOINT } from '../api/endpointrs';
+import { GET_MOVIES_BY_ALL_ENDPOINTS, GET_MOVIES_BY_GENRE_ENDPOINT } from '../api/endpointrs';
 import { FilmDataType } from '../Components/MovieItem/FilmDataType';
 import { SearchType, SortType } from '../pages/home/StateType';
 
@@ -30,44 +30,11 @@ export const sortData = (movies: FilmDataType[]) => {
 }
 
 export const GET_MOVIES = 'GET_MOVIES';
-export const GET_MOVIES_PENDING = 'GET_MOVIES_PENDING';
-export const GET_MOVIES_ERROR = 'GET_MOVIES_ERROR';
-export const GET_MOVIES_FULFILLED = 'GET_MOVIES_FULFILLED';
 
 export const getMovies = () => {
     return {
         type: GET_MOVIES
     }
-}
-
-export const fetchMoviesByServer = (sortBy?: string, searchBy?: string, text?: string) => {
-    let url = '';
-    
-    if (sortBy !== undefined && searchBy !== undefined && text !== undefined) {
-        const copyText = text.replace(' ', '%20');
-        const copySortBy = sortBy === 'rating' ? 'vote_average' : 'release_date';
-        const copySearchBy = searchBy === 'GENRE' ? 'genres' : 'title';
-        url = GET_MOVIES_BY_ALL_ENPOINTS(copySortBy, copySearchBy, copyText);
-    }
-
-    if (url === '') {
-        return { type: GET_MOVIES };
-    }
-    return {
-        type: GET_MOVIES,
-        payload: fetch(url)
-            .then(response => response.json())
-    };
-}
-
-export const fetchMoviesByServerByGenre = (genre: string) => {
-    const url = GET_MOVIES_BY_GENRE_ENDPOINT(genre);
-
-    return {
-        type: GET_MOVIES,
-        payload: fetch(url)
-            .then(response => response.json())
-    };
 }
 
 export const UPDATE_SEARCH_DATA = 'UPDATE_SEARCH_DATA';
@@ -88,21 +55,6 @@ export const updateInputData = (inputData: string) => {
     }
 }
 
-export const GET_MOVIE_BY_ID = 'GET_MOVIE_BY_ID';
-export const GET_MOVIE_BY_ID_PENDING = 'GET_MOVIE_BY_ID_PENDING';
-export const GET_MOVIE_BY_ID_ERROR = 'GET_MOVIE_BY_ID_ERROR';
-export const GET_MOVIE_BY_ID_FULFILLED = 'GET_MOVIE_BY_ID_FULFILLED';
-
-export const getMovieById = (id: string) => {
-    const url = `https://reactjs-cdp.herokuapp.com/movies/${id}`;
-
-    return {
-        type: GET_MOVIE_BY_ID,
-        payload: fetch(url)
-        .then(response => response.json())
-    }
-}
-
 export const CLEAR_MOVIES_DATA = 'CLEAR_MOVIES_DATA';
 
 export const clearMoviesData = () => {
@@ -116,5 +68,75 @@ export const CLEAR_SEARCH_DATA = 'CLEAR_SEARCH_DATA';
 export const clearSearchData =() => {
     return {
         type: CLEAR_SEARCH_DATA
+    }
+}
+
+export const LOAD_DATA = 'LOAD_DATA';
+
+export const loadData = (sortBy?: string, searchBy?: string, text?: string) => {
+    let url = '';
+    
+    if (sortBy !== undefined && searchBy !== undefined && text !== undefined) {
+        const copyText = text.replace(' ', '%20');
+        const copySortBy = sortBy === 'rating' ? 'vote_average' : 'release_date';
+        const copySearchBy = searchBy === 'GENRE' ? 'genres' : 'title';
+        url = GET_MOVIES_BY_ALL_ENDPOINTS(copySortBy, copySearchBy, copyText);
+    }
+
+    if (url === '') {
+        return { type: GET_MOVIES };
+    }
+    return {
+        type: LOAD_DATA,
+        payload: url
+    };
+}
+
+export const PUT_DATA = 'PUT_DATA';
+
+export const putData = (dataFromServer: any) => {
+    return {
+        type: PUT_DATA,
+        payload: dataFromServer
+    }
+}
+
+export const LOAD_DATA_BY_ID = 'LOAD_DATA_BY_ID';
+
+export const loadDataById = (id: string) => {
+    const url = `https://reactjs-cdp.herokuapp.com/movies/${id}`;
+
+    return {
+        type: LOAD_DATA_BY_ID,
+        payload: url
+    }
+}
+
+export const PUT_DATA_BY_ID = 'PUT_DATA_BY_ID';
+
+export const putDataById = (dataFromServer: any) => {
+    return {
+        type: PUT_DATA_BY_ID,
+        payload: dataFromServer
+    }
+}
+
+export const LOAD_DATA_BY_GENRE = 'LOAD_DATA_BY_GENRE';
+
+export const loadDataByGenre = (genre: string) => {
+    const url = GET_MOVIES_BY_GENRE_ENDPOINT(genre);
+
+    return {
+        type: LOAD_DATA_BY_GENRE,
+        payload: url
+    }
+}
+
+export const PUT_DATA_BY_GENRE = 'PUT_DATA_BY_GENRE';
+
+export const putDataByGenre = (dataFromServer: any) => {
+    return {
+        type: PUT_DATA_BY_GENRE,
+        payload: dataFromServer
     }
 }
