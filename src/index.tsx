@@ -1,23 +1,21 @@
 import React from "react";
 import * as ReactDOM from "react-dom";
-import { Comp } from "./module/Comp/Comp";
-import { CompNew } from "./module/CompNew/CompNew";
+import { BrowserRouter }  from 'react-router-dom';
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import App from "./App/App";
+import store, { persistor } from "./store/store";
+import "./index.scss";
 
 const rootElement = document.getElementById("root");
 
-const counter: {
-  first: number;
-} = {
-  first: 1
-};
-
 ReactDOM.render(
-  <React.StrictMode>
-    <Comp text="Function Component" count={counter.first} />
-    <Comp text="React" />
-    <Comp text="React" />
-    <CompNew text="Function Component" count={counter.first} />
-    <CompNew text="Function Component" count={counter.first} />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </PersistGate>
+  </Provider>,
   rootElement
 );

@@ -3,3 +3,4 @@ build
 dist
 coverage
 .awcache
+.nyc_output

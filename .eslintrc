@@ -1,0 +1,43 @@
+{
+    "parser":  "@typescript-eslint/parser",
+    "extends": [
+        "airbnb-typescript",
+        "prettier",
+        "prettier/@typescript-eslint"
+    ],
+    "parserOptions":  {
+      "project": "./tsconfig.json",
+      "ecmaVersion":  2018,
+      "sourceType":  "module",
+      "ecmaFeatures":  {
+        "jsx":  true,
+        "modules": true,
+        "experimentalObjectRestSpread": true
+      }
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules":  {
+      "strict": 0,
+      "max-len": [
+        1,
+        120,
+        2,
+        {
+            "ignoreComments": true
+        }
+      ],
+      "react/prop-types": 0
+    },
+    "settings":  {
+      "react":  {
+        "version":  "detect"
+      }
+    },
+    "globals": {
+        "document": false
+    },
+    "ignorePatterns": ["*.spec.js", "./stories/*"]
+}
+  

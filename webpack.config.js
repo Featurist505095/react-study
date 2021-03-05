@@ -16,7 +16,8 @@ const config = env => (
 
     output: {
         filename: "js/bundle.js",
-        path: path.resolve(__dirname, "dist")
+        path: path.resolve(__dirname, "dist"),
+        publicPath: "/"
     },
     resolve: {
       extensions: ['.ts', '.tsx', '.js', '.jsx']
@@ -53,7 +54,7 @@ const config = env => (
           },
           {
             test: /\.(css|scss|sass)$/,
-            exclude: /\.module\.*\.(css|scss|sass)$/,
+            exclude: /\.Components\.*\.(css|scss|sass)$/,
             use: [
               env && env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
               {
@@ -66,7 +67,7 @@ const config = env => (
             ],
           },
           {
-            test: /\.module\.*\.(css|scss|sass)$/,
+            test: /\.Components\.*\.(css|scss|sass)$/,
             use: [
               env && env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
               {
@@ -147,6 +148,7 @@ const config = env => (
         stats: 'errors-only',
         clientLogLevel: 'none',
         hot: true,
+        historyApiFallback: true,
     },
 }
 )

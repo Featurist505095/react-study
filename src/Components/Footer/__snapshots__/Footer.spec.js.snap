@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test footer render 1`] = `
+<footer
+  className="sc-bdfBwQ gVCbTU"
+>
+  <a
+    className="company-name"
+    href="https://www.netflix.com/"
+  >
+    <h3>
+      netflixroulette
+    </h3>
+  </a>
+</footer>
+`;
